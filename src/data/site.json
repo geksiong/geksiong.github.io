@@ -1,0 +1,41 @@
+{
+  "title": "Production Not Ready",
+  "description": "A personal blog",
+  "logo": "https://s.gravatar.com/avatar/f4fc421dae2d7fc4b8b66112f838f881?s=80",
+  "footer": "© 2022 GS Low. All views expressed are personal.",
+  "pages": [
+    {
+      "name": "Posts",
+      "url": "/posts"
+    },
+    {
+      "name": "Tags",
+      "url": "/posts/tags"
+    },
+    {
+      "name": "About",
+      "url": "/website"
+    },
+    {
+      "name": "Bio",
+      "url": "/geksiong"
+    }
+  ],
+  "default_author": "GS",
+  "authors": {
+    "GS": {
+      "display_name": "GS Low",
+      "image": "https://s.gravatar.com/avatar/f4fc421dae2d7fc4b8b66112f838f881?s=80",
+      "social": [
+        {
+          "name": "twitter",
+          "url": "https://twitter.com/geksiong"
+        },
+        {
+          "name": "github",
+          "url": "https://github.com/geksiong"
+        }
+      ]
+    }
+  }
+}

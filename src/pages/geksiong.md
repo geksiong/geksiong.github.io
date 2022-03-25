@@ -128,7 +128,7 @@ education:
           - Advisor: Professor Terry Winograd
 
   - qualification: Bachelor of Science in Electrical Engineering & Computer Science (Highest Honors)
-    school: Stanford University
+    school: University of California at Berkeley
     from: 1997
     to: 2000
     items:

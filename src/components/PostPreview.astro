@@ -1,0 +1,31 @@
+---
+import '@styles/global.css';
+
+import { Icon } from 'astro-icon';
+
+import { generateSlug } from '@utils/helpers';
+
+let { post, tags } = Astro.props;
+
+---
+<article class="space-y-2">
+
+  <div class="flex flex-wrap space-x-3 font-semibold">
+    { tags?.map((tag) => (
+      <a href={ "/posts/tags/"+generateSlug(tag) } class="p-1 text-sm tracking-wider uppercase rounded-md text-main hover:bg-main/20">{ tag }</a>
+    ))}
+  </div>
+
+  <h3 class="text-2xl font-bold tracking-normal hover:text-main">
+    <a href={ post.url }>{ post.title }</a>
+  </h3>
+  <p class="max-w-full">{ post.description }</p>
+
+  <dl>
+    <dt class="sr-only">Published on</dt>
+    <dd class="text-sm">
+      <time datetime="2021-01-12">{ new Date(post.date).toDateString()  }</time>
+    </dd>
+  </dl>
+
+</article>

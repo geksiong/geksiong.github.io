@@ -1,0 +1,22 @@
+---
+import '../styles/global.css';
+
+import EmptyLayout from '../layouts/EmptyLayout.astro';
+---
+
+<EmptyLayout content="{ title: 'Not found'; }">
+  <section class="flex items-center h-full p-16 text-darkshade">
+    <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
+      <div class="max-w-lg text-center">
+          <div class="flex flex-col items-center">
+            <p class="mb-8 font-bold text-lightaccent text-9xl">
+              <span class="sr-only">Error</span>404
+            </p>
+            <p class="text-2xl font-semibold md:text-3xl">"There is no such thing as an empty space or an empty time. There is always something to see, something to hear. In fact, try as we may to make a silence, we cannot." - John Cage</p>
+            <p class="mt-4 mb-8 text-darkaccent md:text-xl">So you've found an empty page...it's either my typo, or your typo. Hmm, but is this space really empty?</p>
+          </div>
+        <a href="/" class="px-8 py-3 font-semibold rounded bg-main text-lightshade">Back to homepage</a>
+      </div>
+    </div>
+  </section>
+</EmptyLayout>

@@ -1,0 +1,21 @@
+---
+import siteData from '@data/site.json';
+
+import SocialLinks from '@components/SocialLinks.astro';
+
+import { Icon } from 'astro-icon';
+---
+		<SocialLinks />
+
+		<footer class="container flex flex-col max-w-3xl px-6 pt-6 mx-auto md:flex-row md:place-content-between xl:max-w-5xl text-darkshade bg-lightshade">
+			<p>Built with
+				<a target="_blank" href='https://www.astro.build'>
+					<Icon name="vscode-icons:file-type-astro" class="inline w-6 text-darkshade hover:text-main" />
+				</a>
+				and
+				<a target="_blank" href='https://www.tailwindcss.com'>
+					<Icon name="vscode-icons:file-type-tailwind" class="inline w-6 text-darkshade hover:text-main" />
+				</a>
+			</p>
+			<p>{ siteData.footer }</p>
+		</footer>

@@ -1,0 +1,16 @@
+---
+import siteData from '@data/site.json';
+import iconNames from '@data/icons.json';
+
+import { Icon } from 'astro-icon';
+---
+<div class="container flex flex-col items-center max-w-3xl px-6 mx-auto xl:max-w-5xl">
+	<div class="flex space-x-4">
+		{ siteData.authors[siteData.default_author].social.map((item) => (
+			<a target="_blank" href={ item.url }>
+				<span class="sr-only">{ item.name }</span>
+				<Icon name={ iconNames[item.name] } class="w-8 hover:text-main"/>
+			</a>
+		))}
+	</div>
+</div>

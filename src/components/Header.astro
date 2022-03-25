@@ -1,0 +1,70 @@
+---
+import siteData from '@data/site.json';
+
+import { Icon } from 'astro-icon';
+
+---
+<style>
+.hideMenu {
+	@apply translate-x-full;
+}
+
+</style>
+
+<header class="container sticky top-0 z-50 flex items-center justify-between w-full max-w-3xl px-6 py-4 mx-auto xl:max-w-5xl text-darkshade bg-lightshade">
+	<a href="/" class="block h-6 text-2xl font-semibold hover:text-main">
+		<img src={ siteData.logo } class="inline-block h-8" /><span class="hidden pl-2 sm:inline-block">{ siteData.title }</span>
+	</a>
+
+	<div class="flex items-center">
+		<!-- Main navigation -->
+		<nav class="hidden space-x-2 font-medium sm:block">
+			{ siteData.pages.map((item) => (
+				<a href={ item.url } class="p-1 hover:border-b-4 hover:border-main hover:text-main">{ item.name }</a>
+			))}
+		</nav>
+
+		<!-- Dark Mode toggle -->
+		<!--button aria-label="Toggle Dark Mode" type="button" class="w-8 h-8 p-1 ml-1 mr-1 rounded sm:ml-4 hover:text-main">
+			<Icon name="tabler:moon" class="w-6"/>
+		</button -->
+
+		<!-- Mobile menu toggle -->
+		<div class="sm:hidden">
+			<button type="button" aria-label="Toggle Menu" class="w-8 h-8 ml-1 mr-1 rounded" onclick="toggleMobileMenu()">
+				<Icon id="menuOpenBtn" name="tabler:menu" class="w-6"/>
+				<Icon id="menuCloseBtn" name="tabler:x" class="hidden w-6"/>
+			</button>
+		</div>
+	</div>
+
+	<!-- Mobile menu -->
+	<div id="mobile_menu" class="fixed right-0 z-10 w-1/2 h-full duration-300 ease-in-out transform top-16 bg-main text-lightshade hideMenu">
+		<nav class="fixed h-full mt-8">
+			{ siteData.pages.map((item) => (
+				<div class="px-12 py-2">
+					<a href={ item.url } class="text-2xl font-bold tracking-widest">{ item.name }</a>
+				</div>
+			))}
+		</nav>
+	</div>
+
+</header>
+
+<script>
+function toggleMobileMenu() {
+	var menu = document.getElementById("mobile_menu");
+	var openBtn = document.getElementById("menuOpenBtn");
+	var closeBtn = document.getElementById("menuCloseBtn");
+	if (menu.classList.contains("hideMenu")) {
+		// show menu and change the icon
+		menu.classList.remove("hideMenu");
+		openBtn.style.display = "none";
+		closeBtn.style.display = "block";
+	} else {
+		menu.classList.add("hideMenu");
+		openBtn.style.display = "block";
+		closeBtn.style.display = "none";
+	}
+}
+</script>

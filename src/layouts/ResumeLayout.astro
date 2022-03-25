@@ -1,0 +1,99 @@
+---
+//import '../styles/global.css';
+
+import { Markdown } from 'astro/components';
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon';
+
+import iconNames from '@data/icons.json';
+
+let { content } = Astro.props;
+---
+<BaseLayout content={ content }>
+
+<div class="p-8 shadow-md rounded-xl sm:py-8 sm:px-16 bg-main text-lightshade">
+	<div class="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
+
+		<div class="flex flex-col w-full sm:w-3/4">
+			<!-- Photo -->
+			<img src={ content.photo } alt="" class="self-center w-32 h-32 border-4 rounded-full shadow-md bg-lightshade border-lightshade">
+
+			<!-- Social links -->
+			<div class="flex justify-center pt-4 space-x-4 align-center">
+				{ content.social.map((item) => (
+					<a target="_blank" href={ item.url } aria-label={ item.name } class="p-2 rounded-md hover:text-darkshade">
+							<Icon name={ iconNames[item.name] } class="w-6"/>
+						</a>
+					))}
+			</div>
+		</div>
+
+		<div class="flex flex-col space-y-1">
+			<h2 class="text-3xl">{ content.full_name }</h2>
+			<span class="text-lg font-semibold">{ content.title }</span>
+			<div class="prose max-w-none text-lightshade">
+				<Markdown>{content.introduction}</Markdown>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<section class="">
+	<div class="container max-w-5xl pt-12 mx-auto">
+		<div class="grid gap-4 sm:grid-cols-12">
+			<div class="col-span-12 sm:col-span-3">
+				<div class="text-center sm:text-left mb-14 before:block before:w-24 before:h-3 before:mb-5 before:rounded-md before:mx-auto sm:before:mx-0 before:bg-main">
+					<h3 class="text-3xl font-semibold">Work Experience</h3>
+					<span class="text-sm font-bold tracking-wider uppercase text-darkaccent"></span>
+				</div>
+			</div>
+			<div class="relative col-span-12 px-4 space-y-6 sm:col-span-9">
+				<div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:bg-gray-300">
+					{ content.work.map((job) => (
+						<div class="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-main">
+							<h3 class="text-xl font-semibold tracking-wide">{job.title}</h3>
+							<time class="text-sm font-semibold tracking-wide uppercase text-darkaccent">{job.company}, {job.from} - {job.to}</time>
+							{ job.items.map((item) => (
+								<article class="mt-3 prose prose-headings:font-body prose-li:m-0 prose-ol:m-0 max-w-none">
+									<Markdown>{item.text}</Markdown>
+								</article>
+							))}
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="">
+	<div class="container max-w-5xl pt-12 mx-auto">
+		<div class="grid gap-4 sm:grid-cols-12">
+			<div class="col-span-12 sm:col-span-3">
+				<div class="text-center sm:text-left mb-14 before:block before:w-24 before:h-3 before:mb-5 before:rounded-md before:mx-auto sm:before:mx-0 before:bg-main">
+					<h3 class="text-3xl font-semibold">Education</h3>
+					<span class="text-sm font-bold tracking-wider uppercase text-darkaccent"></span>
+				</div>
+			</div>
+			<div class="relative col-span-12 px-4 space-y-6 sm:col-span-9">
+				<div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:bg-gray-300">
+					{ content.education.map((school) => (
+						<div class="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-main">
+							<h3 class="text-xl font-semibold tracking-wide">{school.qualification}</h3>
+							<time class="text-sm font-semibold tracking-wide uppercase text-darkaccent">{school.school}, {school.from} - {school.to}</time>
+							{ school.items.map((item) => (
+								<article class="mt-3 prose prose-headings:font-body prose-li:m-0 prose-ol:m-0 max-w-none">
+									<Markdown>{item.text}</Markdown>
+								</article>
+							))}
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+</BaseLayout>

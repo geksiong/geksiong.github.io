@@ -1,3 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karma&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Color Themes */
+
+.theme-default {
+  /* Base */
+  --color-light-shade: 140 16% 96%; /* #FBFAFB */
+  --color-light-accent: 221 20% 56%; /* #968592 */
+  --color-main: 211 41% 45%; /* #4471A2 */
+  --color-dark-accent: 347 46% 47%; /* #AE4158 */
+  --color-dark-shade: 295 23% 10%; /* #222136 */
+  --color-darker-shade: 240 22% 7%; /* #0E0E16 */
+
+  /* UI */
+  --color-ui-fg: 0 0% 100% /* #fff */;
+  --color-ui-bg: var(--color-darkest-shade);
+  --color-default: 0 0% 60%; /* #999999 */
+  --color-primary: var(--color-main); /* #4b74ab */;
+  --color-info: var(--color-darkest-shade);
+  --color-success: 143 35% 46%; /* #4c9d6b */
+  --color-warning: 36 60% 49%; /* #c98d33 */
+  --color-danger: 4 90% 58%; /* #f44336 */
+}
+
+/* Typograhy Themes */
+.typography-default {
+  --font-body: 'Mulish';
+  --font-heading: 'Karma';
+  --font-leading: 'Rubik';
+}
+
+.prose pre {
+  @apply shadow-lg;
+}
+
+.prose blockquote {
+  @apply text-xl shadow-lg py-1 border-l-darkshade border-l-4 pr-4;
+  font-family: var(--font-leading);
+  background-color: hsl(var(--color-dark-shade) / 5%);
+}

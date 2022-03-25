@@ -1,0 +1,52 @@
+---
+import siteData from '../../data/site.json';
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostPreview from '../../components/PostPreview.astro';
+import Paginator from '../../components/Paginator.astro';
+
+export async function getStaticPaths({rss, paginate}) {
+  const allPosts = Astro.fetchContent('./*.md');
+  const sortedPosts = allPosts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+
+  rss({
+    // The RSS Feed title, description, and custom metadata.
+    title: siteData.title,
+    description: siteData.description,
+    customData: `<language>en-us</language>`,
+    // The list of items for your RSS feed, sorted.
+    items: sortedPosts.map(item => ({
+      title: item.title,
+      description: item.description,
+      link: item.url,
+      pubDate: item.date,
+    })),
+    // Optional: Customize where the file is written to.
+    // Otherwise, defaults to "/rss.xml"
+    //dest: "/blog/feed.xml",
+  });
+
+  return paginate(sortedPosts, {pageSize: 10});
+}
+
+let content = {
+  title: "All Posts",
+}
+
+let { page } = Astro.props;
+---
+
+<BaseLayout content={content}>
+  <div class="space-y-6">
+		<h2 class="text-3xl font-extrabold">{content.title}</h2>
+
+		<ul class="space-y-6 md:space-y-8">
+      {page.data.map(post => (
+        <li>
+          <PostPreview post={post} tags={ post.tags } />
+        </li>
+      ))}
+    </ul>
+    <Paginator page={page} />
+  </div>
+</BaseLayout>

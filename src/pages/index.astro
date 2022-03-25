@@ -1,18 +1,34 @@
 ---
-import '../styles/global.css';
-import { Icon } from 'astro-icon';
+import '@styles/global.css';
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PostPreview from '@components/PostPreview.astro';
+//import { Icon } from 'astro-icon';
+
+import siteData from '@data/site.json';
+
+const allPosts = Astro.fetchContent('./posts/*.md');
+const sortedPosts = allPosts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+
+let content = {
+	title: siteData.title,
+};
 ---
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Astro</title>
-	</head>
-	<body class='bg-slate-200'>
-	  <article class="prose">
-			<h1>Astro</h1>
-			<Icon name="mdi:account" />
-			<blockquote>This is a blockquote</blockquote>
-		</article>
-	</body>
-</html>
+<BaseLayout content={content}>
+
+	<div class="space-y-6">
+		<h2 class="text-3xl font-extrabold">Recent posts</h2>
+
+		<ul class="space-y-6 md:space-y-8">
+		{ sortedPosts.slice(0,10).map((post) => (
+			<li>
+				<PostPreview post={post} tags={post.tags} />
+			</li>
+		))}
+		</ul>
+	</div>
+
+	<div class="mt-8 text-lg text-center hover:text-main">
+		<a href="/posts">Browse All Posts</a>
+	</div>
+</BaseLayout>

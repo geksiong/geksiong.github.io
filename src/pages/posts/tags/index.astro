@@ -1,0 +1,31 @@
+---
+// Component imports and setup JavaScript go here!
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import {generateTagData} from '../../../utils/helpers.js';
+
+const allPosts = Astro.fetchContent('../*.md');
+const allTagsUnique = new Set();
+
+allPosts.forEach(post => {
+  post.tags && post.tags.map(tag => {
+    allTagsUnique.add(tag);
+  })
+})
+
+const allTagsData = generateTagData(allTagsUnique);
+
+let content = {
+  title: "Tags",
+}
+---
+
+<BaseLayout content={content.title}>
+  <div class="">
+    <h2 class="text-3xl font-extrabold">{content.title}</h2>
+    <ul class="flex flex-wrap mt-8 space-x-8 font-semibold">
+      {allTagsData.map(tag => (
+        <li><a href={`/posts/tags/${tag.slug}`} class="p-1 text-sm tracking-wider uppercase rounded-md text-main hover:bg-main/20">{tag.name}</a></li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>

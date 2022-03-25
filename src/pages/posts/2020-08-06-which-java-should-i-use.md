@@ -2,7 +2,7 @@
 layout: '@layouts/PostLayout.astro'
 
 title: Which Java Version Should I Use?
-date: 2021-08-06
+date: 2020-08-06
 
 tags:
   - java

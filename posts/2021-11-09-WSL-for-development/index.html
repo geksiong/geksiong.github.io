@@ -4,25 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>WSL2 for development</title>
-<link rel="stylesheet" href="/assets/BaseLayout.4af71371.css"></link>
+
+  <!-- KaTeX stylesheet -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
+<link rel="stylesheet" href="/assets/BaseLayout.319ff24b.css"></link>
 <link rel="stylesheet" href="/assets/PostLayout.17bd0ff9.css"></link>
-<link rel="stylesheet" href="/assets/global.b7d55f3a.css"></link>
+<link rel="stylesheet" href="/assets/global.e9f3dea3.css"></link>
 </head>
 
 	<body class="theme-default typography-default font-body bg-background">
-		<div class="antialiased text-darkshade">
+		<div class="subpixel-antialiased text-darkshade">
 			<div class="flex flex-col min-h-screen space-y-12">
 				
 
-<header class="container sticky top-0 z-50 flex items-center justify-between w-full max-w-3xl px-6 py-4 mx-auto xl:max-w-5xl text-darkshade bg-lightshade astro-TWFYZN2C">
-	<a href="/" class="block h-6 text-2xl font-semibold hover:text-main astro-TWFYZN2C">
-		<img src="https://s.gravatar.com/avatar/f4fc421dae2d7fc4b8b66112f838f881?s=80" class="inline-block h-8 astro-TWFYZN2C"><span class="hidden pl-2 sm:inline-block astro-TWFYZN2C">Production Not Ready</span>
+<header class="container sticky top-0 z-50 flex items-center justify-between w-full max-w-3xl px-6 py-4 mx-auto xl:max-w-5xl text-darkshade bg-lightshade astro-I6KJHHDB">
+	<a href="/" class="block h-6 text-2xl font-semibold hover:text-main astro-I6KJHHDB">
+		<img src="https://s.gravatar.com/avatar/f4fc421dae2d7fc4b8b66112f838f881?s=80" class="inline-block h-8 astro-I6KJHHDB"><span class="hidden pl-2 sm:inline-block astro-I6KJHHDB">Production Not Ready</span>
 	</a>
 
-	<div class="flex items-center astro-TWFYZN2C">
+	<div class="flex items-center astro-I6KJHHDB">
 		<!-- Main navigation -->
-		<nav class="hidden space-x-2 font-medium sm:block astro-TWFYZN2C">
-			<a href="/posts" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-TWFYZN2C">Posts</a><a href="/posts/tags" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-TWFYZN2C">Tags</a><a href="/website" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-TWFYZN2C">About</a><a href="/geksiong" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-TWFYZN2C">Bio</a>
+		<nav class="hidden space-x-2 font-medium sm:block astro-I6KJHHDB">
+			<a href="/posts" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-I6KJHHDB">Posts</a><a href="/posts/tags" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-I6KJHHDB">Tags</a><a href="/website" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-I6KJHHDB">About</a><a href="/geksiong" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-I6KJHHDB">Bio</a>
 		</nav>
 
 		<!-- Dark Mode toggle -->
@@ -31,27 +34,27 @@
 		</button -->
 
 		<!-- Mobile menu toggle -->
-		<div class="sm:hidden astro-TWFYZN2C">
-			<button type="button" aria-label="Toggle Menu" class="w-8 h-8 ml-1 mr-1 rounded astro-TWFYZN2C" onclick="toggleMobileMenu()">
-				<svg viewBox="0 0 24 24" id="menuOpenBtn" class="w-6 astro-TWFYZN2C" astro-icon="tabler:menu"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon-tabler"><path d="M4 8h16M4 16h16"/></g></svg>
+		<div class="sm:hidden astro-I6KJHHDB">
+			<button type="button" aria-label="Toggle Menu" class="w-8 h-8 ml-1 mr-1 rounded astro-I6KJHHDB" onclick="toggleMobileMenu()">
+				<svg viewBox="0 0 24 24" id="menuOpenBtn" class="w-6 astro-I6KJHHDB" astro-icon="tabler:menu"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon-tabler"><path d="M4 8h16M4 16h16"/></g></svg>
 
-				<svg viewBox="0 0 24 24" id="menuCloseBtn" class="hidden w-6 astro-TWFYZN2C" astro-icon="tabler:x"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon-tabler"><path d="M18 6 6 18M6 6l12 12"/></g></svg>
+				<svg viewBox="0 0 24 24" id="menuCloseBtn" class="hidden w-6 astro-I6KJHHDB" astro-icon="tabler:x"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon-tabler"><path d="M18 6 6 18M6 6l12 12"/></g></svg>
 
 			</button>
 		</div>
 	</div>
 
 	<!-- Mobile menu -->
-	<div id="mobile_menu" class="fixed right-0 z-10 w-1/2 h-full duration-300 ease-in-out transform top-16 bg-main text-lightshade hideMenu astro-TWFYZN2C">
-		<nav class="fixed h-full mt-8 astro-TWFYZN2C">
-			<div class="px-12 py-2 astro-TWFYZN2C">
-					<a href="/posts" class="text-2xl font-bold tracking-widest astro-TWFYZN2C">Posts</a>
-				</div><div class="px-12 py-2 astro-TWFYZN2C">
-					<a href="/posts/tags" class="text-2xl font-bold tracking-widest astro-TWFYZN2C">Tags</a>
-				</div><div class="px-12 py-2 astro-TWFYZN2C">
-					<a href="/website" class="text-2xl font-bold tracking-widest astro-TWFYZN2C">About</a>
-				</div><div class="px-12 py-2 astro-TWFYZN2C">
-					<a href="/geksiong" class="text-2xl font-bold tracking-widest astro-TWFYZN2C">Bio</a>
+	<div id="mobile_menu" class="fixed right-0 z-10 w-1/2 h-full duration-300 ease-in-out transform top-16 bg-darkshade text-lightshade hideMenu astro-I6KJHHDB">
+		<nav class="fixed h-full mt-8 astro-I6KJHHDB">
+			<div class="px-12 py-2 astro-I6KJHHDB">
+					<a href="/posts" class="text-2xl font-bold tracking-widest astro-I6KJHHDB">Posts</a>
+				</div><div class="px-12 py-2 astro-I6KJHHDB">
+					<a href="/posts/tags" class="text-2xl font-bold tracking-widest astro-I6KJHHDB">Tags</a>
+				</div><div class="px-12 py-2 astro-I6KJHHDB">
+					<a href="/website" class="text-2xl font-bold tracking-widest astro-I6KJHHDB">About</a>
+				</div><div class="px-12 py-2 astro-I6KJHHDB">
+					<a href="/geksiong" class="text-2xl font-bold tracking-widest astro-I6KJHHDB">Bio</a>
 				</div>
 		</nav>
 	</div>
@@ -90,7 +93,7 @@ function toggleMobileMenu() {
 				<img src="https://s.gravatar.com/avatar/f4fc421dae2d7fc4b8b66112f838f881?s=80" alt="" class="w-12 h-12 border-2 rounded-full shadow-lg border-lightshade">
 				<p class="text-sm">
 					<span class="font-semibold">GS Low</span>
-					<br>Tue Nov 09 2021
+					<br><span class="text-darkshade/50">Tue Nov 09 2021</span>
 				</p>
 			</div>
 		</div>
@@ -115,8 +118,8 @@ function toggleMobileMenu() {
 </ul><h2 id="choose-your-linux">Choose Your Linux</h2><p>I chose Ubuntu, as most people use it, meaning it should be easier to troubleshoot and seach for solutions.</p><p>Debian is much smaller, but it's smaller because a lot of things hasn't been installed yet. Ubuntu comes out of the box with git, ssh, vim, tmux, python, etc, all my usual tools.</p><h2 id="setup">Setup</h2><h3 id="file-permissions">File Permissions</h3><p>This is a common gotcha that non-Linux users probably won't realise. Although WSL2 conveniently auto-mounts your Windows user directory, everything in there has <code>0777</code> file permissions, which is horrible for git. Also, I want to keep my ssh configurations outside in Windows, and using ssh is impossible if the keys in my .ssh folder are all <code>0777</code>.</p><p>Fortunately, WSL2 provides a way to provide proper file permissions for mounted Windows folders. The <code>.wslconfig</code> file in Window's <code>%UserProfile%</code> directory for some reason didn't work for me. Only <code>/etc/wsl.conf</code> inside Ubuntu works.</p><p>Create a new file <code>/etc/wsd.conf</code> with the following contents:</p><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #F6F6F4">[automount]</span></span>
 <span class="line"><span style="color: #F286C4">enabled</span><span style="color: #F6F6F4"> </span><span style="color: #F286C4">=</span><span style="color: #F6F6F4"> true</span></span>
 <span class="line"><span style="color: #F286C4">options</span><span style="color: #F6F6F4"> </span><span style="color: #F286C4">=</span><span style="color: #F6F6F4"> </span><span style="color: #DEE492">&quot;</span><span style="color: #E7EE98">metadata,umask=22,fmask=11</span><span style="color: #DEE492">&quot;</span></span></code></pre><p><strong>Important</strong>: You must wait 8 seconds before launching WSL2 again, before the settings will take effect. You can check whether any WSL2 distributions are running by executing <code>wsl --list --running</code> in Windows Command Prompt (or in gitbash)</p><p>Not sure why they don't make this the default setting.</p><p>I verified it works by changing my ssh key to <code>0600</code> and successfully logging into my server.</p><p><strong>References:</strong></p><ul>
-<li><a href="https://www.turek.dev/posts/fix-wsl-file-permissions/">https://www.turek.dev/posts/fix-wsl-file-permissions/</a></li>
-<li><a href="https://devblogs.microsoft.com/commandline/chmod-chown-wsl-improvements/">https://devblogs.microsoft.com/commandline/chmod-chown-wsl-improvements/</a></li>
+<li>https://www.turek.dev/posts/fix-wsl-file-permissions/</li>
+<li>https://devblogs.microsoft.com/commandline/chmod-chown-wsl-improvements/</li>
 </ul><h3 id="vs-code">VS Code</h3><p>VS Code (in Windows) can work with the development installed inside WSL2.</p><p>Just install Microsoft's "Remote - WSL" extension for VS Code. You can then use it to connect to your WSL2 Linux distribution. You can even simply run <code>code .</code> when inside your WSL2 distribution.</p><h3 id="switching-to-zsh">Switching to zsh</h3><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #F6F6F4">sudo apt install zsh</span></span>
 <span class="line"><span style="color: #F6F6F4">chsh -s /usr/bin/zsh</span></span></code></pre><h2 id="issues">Issues</h2><h3 id="fonts">Fonts</h3><p>Fonts are lacking in the default command prompt app. Solution: Use Windows Terminal instead.</p><p>Tip: Install your favourite color scheme and enable transparency (need to edit settings.json). However, I found that Windows transparency doesn't work with tmux background colors...</p><h3 id="mounted-windows-directories-are-slow">Mounted Windows directories are slow</h3><p>I originally thought to simply soft-link to my current config files from gitbash, but I soon realise it slows things down quite a bit.</p><p>I tested with building the same project, one cloned inside WSL2, and the other cloned under Windows and mounted into WSL2. Building a project from a mounted Windows directory is indeed much slower.</p><p>Is this a problem? Let's see...</p><ul>
 <li>For most languages which you can use VS Code for development, keep the projects inside WSL2, since you will need all that tooling you installed in the first place</li>
@@ -124,9 +127,9 @@ function toggleMobileMenu() {
 <li>Android projects could be a problem, especially React Native or Ionic projects, where the tooling resides in WSL2, but you need Android Studio to be able to access files in WSL2. <strong>Pending research</strong></li>
 <li>Building of Docker images may have to compromise (assuming you are running Docker inside WSL2, see below), as they are usually located with the main project, be it outside or inside WSL2. This affects Java projects the most, since they are hosted outside WSL2 (as concluded above). Since this is usually a secondary activity, I think the tradeoff is probably justified. Or you can always run Docker Desktop...</li>
 </ul><h3 id="running-docker-inside-wsl2">Running Docker inside WSL2</h3><p>You can't run Docker out-of-the-box in Ubuntu for WSL2, as WSL2 <em>does not use systemd</em>. However, I did find that you can run dockerd and it seems to work.</p><p>Fortunately, there is a very detailed guide on how to setup Docker nicely under WSL2:</p><ul>
-<li><a href="https://dev.to/bowmanjd/you-probably-don-t-need-systemd-on-wsl-windows-subsystem-for-linux-49gn">https://dev.to/bowmanjd/you-probably-don-t-need-systemd-on-wsl-windows-subsystem-for-linux-49gn</a></li>
-<li><a href="https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9">https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9</a></li>
-<li><a href="https://dev.to/bowmanjd/using-podman-on-windows-subsystem-for-linux-wsl-58ji">https://dev.to/bowmanjd/using-podman-on-windows-subsystem-for-linux-wsl-58ji</a></li>
+<li>https://dev.to/bowmanjd/you-probably-don-t-need-systemd-on-wsl-windows-subsystem-for-linux-49gn</li>
+<li>https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9</li>
+<li>https://dev.to/bowmanjd/using-podman-on-windows-subsystem-for-linux-wsl-58ji</li>
 </ul><h3 id="snap-packages">Snap packages</h3><p>Ever since Ubuntu introduce Snaps, I find it irritating that some software chose to use snaps for distributions instead of good old apt repositories. Kotlin is one such software...</p><p>Ubuntu under WSL2 does not run snapd, because (you guessed it) systemd. Thanks Ubuntu!</p><h2 id="upgrade-to-ubuntu-2110">Upgrade to Ubuntu 21.10</h2><p>Because Ubuntu 20.04 LTS is missing some recent tooling.</p><ul>
 <li><code>sudo apt update &#x26;&#x26; sudo apt upgrade</code></li>
 <li><code>sudo apt remove snapd</code> -- Needed because WSL doesn't support Systemd directly</li>

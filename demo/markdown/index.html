@@ -4,25 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Markdown Test Page</title>
-<link rel="stylesheet" href="/assets/BaseLayout.4af71371.css"></link>
+
+  <!-- KaTeX stylesheet -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
+<link rel="stylesheet" href="/assets/BaseLayout.319ff24b.css"></link>
 <link rel="stylesheet" href="/assets/PostLayout.17bd0ff9.css"></link>
-<link rel="stylesheet" href="/assets/global.b7d55f3a.css"></link>
+<link rel="stylesheet" href="/assets/global.e9f3dea3.css"></link>
 </head>
 
 	<body class="theme-default typography-default font-body bg-background">
-		<div class="antialiased text-darkshade">
+		<div class="subpixel-antialiased text-darkshade">
 			<div class="flex flex-col min-h-screen space-y-12">
 				
 
-<header class="container sticky top-0 z-50 flex items-center justify-between w-full max-w-3xl px-6 py-4 mx-auto xl:max-w-5xl text-darkshade bg-lightshade astro-TWFYZN2C">
-	<a href="/" class="block h-6 text-2xl font-semibold hover:text-main astro-TWFYZN2C">
-		<img src="https://s.gravatar.com/avatar/f4fc421dae2d7fc4b8b66112f838f881?s=80" class="inline-block h-8 astro-TWFYZN2C"><span class="hidden pl-2 sm:inline-block astro-TWFYZN2C">Production Not Ready</span>
+<header class="container sticky top-0 z-50 flex items-center justify-between w-full max-w-3xl px-6 py-4 mx-auto xl:max-w-5xl text-darkshade bg-lightshade astro-I6KJHHDB">
+	<a href="/" class="block h-6 text-2xl font-semibold hover:text-main astro-I6KJHHDB">
+		<img src="https://s.gravatar.com/avatar/f4fc421dae2d7fc4b8b66112f838f881?s=80" class="inline-block h-8 astro-I6KJHHDB"><span class="hidden pl-2 sm:inline-block astro-I6KJHHDB">Production Not Ready</span>
 	</a>
 
-	<div class="flex items-center astro-TWFYZN2C">
+	<div class="flex items-center astro-I6KJHHDB">
 		<!-- Main navigation -->
-		<nav class="hidden space-x-2 font-medium sm:block astro-TWFYZN2C">
-			<a href="/posts" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-TWFYZN2C">Posts</a><a href="/posts/tags" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-TWFYZN2C">Tags</a><a href="/website" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-TWFYZN2C">About</a><a href="/geksiong" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-TWFYZN2C">Bio</a>
+		<nav class="hidden space-x-2 font-medium sm:block astro-I6KJHHDB">
+			<a href="/posts" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-I6KJHHDB">Posts</a><a href="/posts/tags" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-I6KJHHDB">Tags</a><a href="/website" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-I6KJHHDB">About</a><a href="/geksiong" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-I6KJHHDB">Bio</a>
 		</nav>
 
 		<!-- Dark Mode toggle -->
@@ -31,27 +34,27 @@
 		</button -->
 
 		<!-- Mobile menu toggle -->
-		<div class="sm:hidden astro-TWFYZN2C">
-			<button type="button" aria-label="Toggle Menu" class="w-8 h-8 ml-1 mr-1 rounded astro-TWFYZN2C" onclick="toggleMobileMenu()">
-				<svg viewBox="0 0 24 24" id="menuOpenBtn" class="w-6 astro-TWFYZN2C" astro-icon="tabler:menu"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon-tabler"><path d="M4 8h16M4 16h16"/></g></svg>
+		<div class="sm:hidden astro-I6KJHHDB">
+			<button type="button" aria-label="Toggle Menu" class="w-8 h-8 ml-1 mr-1 rounded astro-I6KJHHDB" onclick="toggleMobileMenu()">
+				<svg viewBox="0 0 24 24" id="menuOpenBtn" class="w-6 astro-I6KJHHDB" astro-icon="tabler:menu"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon-tabler"><path d="M4 8h16M4 16h16"/></g></svg>
 
-				<svg viewBox="0 0 24 24" id="menuCloseBtn" class="hidden w-6 astro-TWFYZN2C" astro-icon="tabler:x"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon-tabler"><path d="M18 6 6 18M6 6l12 12"/></g></svg>
+				<svg viewBox="0 0 24 24" id="menuCloseBtn" class="hidden w-6 astro-I6KJHHDB" astro-icon="tabler:x"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon-tabler"><path d="M18 6 6 18M6 6l12 12"/></g></svg>
 
 			</button>
 		</div>
 	</div>
 
 	<!-- Mobile menu -->
-	<div id="mobile_menu" class="fixed right-0 z-10 w-1/2 h-full duration-300 ease-in-out transform top-16 bg-main text-lightshade hideMenu astro-TWFYZN2C">
-		<nav class="fixed h-full mt-8 astro-TWFYZN2C">
-			<div class="px-12 py-2 astro-TWFYZN2C">
-					<a href="/posts" class="text-2xl font-bold tracking-widest astro-TWFYZN2C">Posts</a>
-				</div><div class="px-12 py-2 astro-TWFYZN2C">
-					<a href="/posts/tags" class="text-2xl font-bold tracking-widest astro-TWFYZN2C">Tags</a>
-				</div><div class="px-12 py-2 astro-TWFYZN2C">
-					<a href="/website" class="text-2xl font-bold tracking-widest astro-TWFYZN2C">About</a>
-				</div><div class="px-12 py-2 astro-TWFYZN2C">
-					<a href="/geksiong" class="text-2xl font-bold tracking-widest astro-TWFYZN2C">Bio</a>
+	<div id="mobile_menu" class="fixed right-0 z-10 w-1/2 h-full duration-300 ease-in-out transform top-16 bg-darkshade text-lightshade hideMenu astro-I6KJHHDB">
+		<nav class="fixed h-full mt-8 astro-I6KJHHDB">
+			<div class="px-12 py-2 astro-I6KJHHDB">
+					<a href="/posts" class="text-2xl font-bold tracking-widest astro-I6KJHHDB">Posts</a>
+				</div><div class="px-12 py-2 astro-I6KJHHDB">
+					<a href="/posts/tags" class="text-2xl font-bold tracking-widest astro-I6KJHHDB">Tags</a>
+				</div><div class="px-12 py-2 astro-I6KJHHDB">
+					<a href="/website" class="text-2xl font-bold tracking-widest astro-I6KJHHDB">About</a>
+				</div><div class="px-12 py-2 astro-I6KJHHDB">
+					<a href="/geksiong" class="text-2xl font-bold tracking-widest astro-I6KJHHDB">Bio</a>
 				</div>
 		</nav>
 	</div>
@@ -90,7 +93,7 @@ function toggleMobileMenu() {
 				<img src="https://s.gravatar.com/avatar/f4fc421dae2d7fc4b8b66112f838f881?s=80" alt="" class="w-12 h-12 border-2 rounded-full shadow-lg border-lightshade">
 				<p class="text-sm">
 					<span class="font-semibold">GS Low</span>
-					<br>Sun May 30 2021
+					<br><span class="text-darkshade/50">Sun May 30 2021</span>
 				</p>
 			</div>
 		</div>
@@ -112,7 +115,7 @@ function toggleMobileMenu() {
 <p>A page to test various markdown features</p>
 </blockquote><h1 id="h1-heading">h1 Heading</h1><p>Lorem ipsum dolor sit amet, graecis denique ei vel, at duo primis mandamus. Et legere ocurreret pri,
 animal tacimates complectitur ad cum. Cu eum inermis inimicus efficiendi. Labore officiis his ex,
-soluta officiis concludaturque ei qui, vide sensibus vim ad.</p><h2 id="h2-heading">h2 Heading</h2><p>小変就告詳浦円比方怠経室。車児著掲能読密未子図別風。韓賀月済突集集解貴図報画審端。都刈聞江柿当送帯驚憲会道政内阜下都街段前。港情入入排託水浪軸稿勝石。引要州安関内地増得徹生資集更示反伊育情氷。天続真経可地様記年点女割国役東任業。監写分題死遇縮歓道脱雪問窃職情。数並化食妙代求点支登利書質湖付的末作第。</p><h3 id="h3-heading">h3 Heading</h3><p>トエロナチレせょりる。樹譜無みりさ根日等樹名素知りまそん舳目たあすよ他き瀬留保。阿絵津尾保手ヒールヘソ模屋日氏名氏屋ノサメノネウ区野ひ。課都瀬ちひよち夜巣区差御て。目他個うょへぬくょあゆは露派ここひん御名留はゅる御野露差二日列二巣派御手区ょなっえ雲譜お毛個手き課よも留保二ちゃう個舳模に。擢阿模個日露都譜派二手よりとケーイとほ露ハハュラヒセコほょてけめ。</p><h4 id="h4-heading">h4 Heading</h4><h5 id="h5-heading">h5 Heading</h5><h6 id="h6-heading">h6 Heading</h6><hr><h2 id="formatting">Formatting</h2><p><strong>bold text.</strong> <strong>another bold text.</strong></p><p><em>italicized text.</em> <em>another italicized text.</em></p><p><del>strikethrough.</del></p><p><em><strong>bold and italics</strong></em></p><p><del><strong>strikethrough and bold</strong></del></p><p><del><em>strikethrough and italics</em></del></p><p><del><em><strong>bold, italics and strikethrough</strong></em></del></p><h2 id="blockquotes">Blockquotes</h2><blockquote>
+soluta officiis concludaturque ei qui, vide sensibus vim ad.</p><h2 id="h2-heading">h2 Heading</h2><p>小変就告詳浦円比方怠経室。車児著掲能読密未子図別風。韓賀月済突集集解貴図報画審端。都刈聞江柿当送帯驚憲会道政内阜下都街段前。港情入入排託水浪軸稿勝石。引要州安関内地増得徹生資集更示反伊育情氷。天続真経可地様記年点女割国役東任業。監写分題死遇縮歓道脱雪問窃職情。数並化食妙代求点支登利書質湖付的末作第。</p><h3 id="h3-heading">h3 Heading</h3><p>トエロナチレせょりる。樹譜無みりさ根日等樹名素知りまそん舳目たあすよ他き瀬留保。阿絵津尾保手ヒールヘソ模屋日氏名氏屋ノサメノネウ区野ひ。課都瀬ちひよち夜巣区差御て。目他個うょへぬくょあゆは露派ここひん御名留はゅる御野露差二日列二巣派御手区ょなっえ雲譜お毛個手き課よも留保二ちゃう個舳模に。擢阿模個日露都譜派二手よりとケーイとほ露ハハュラヒセコほょてけめ。</p><h4 id="h4-heading">h4 Heading</h4><h5 id="h5-heading">h5 Heading</h5><h6 id="h6-heading">h6 Heading</h6><hr><h2 id="formatting">Formatting</h2><p><strong>bold text.</strong> <strong>another bold text.</strong></p><p><em>italicized text.</em> <em>another italicized text.</em></p><p>~~strikethrough.~~</p><p><em><strong>bold and italics</strong></em></p><p>~~<strong>strikethrough and bold</strong>~~</p><p>~~<em>strikethrough and italics</em>~~</p><p>~~<em><strong>bold, italics and strikethrough</strong></em>~~</p><h2 id="blockquotes">Blockquotes</h2><blockquote>
 <p>I am a blockquote</p>
 <blockquote>
 <p>Nested blockquote</p>
@@ -147,22 +150,19 @@ soluta officiis concludaturque ei qui, vide sensibus vim ad.</p><h2 id="h2-headi
 <span class="line"><span style="color: #F6F6F4">}</span></span></code></pre><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">// Some comments</span></span>
 <span class="line"><span style="color: #f6f6f4">line 1 of code</span></span>
 <span class="line"><span style="color: #f6f6f4">line 2 of code</span></span>
-<span class="line"><span style="color: #f6f6f4">line 3 of code</span></span></code></pre><h2 id="tables">Tables</h2><table>
-<thead>
-<tr>
-<th>Col 1</th>
-<th>Col 2</th>
-<th>Col 3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Hello</td>
-<td>My</td>
-<td>Friend</td>
-</tr>
-</tbody>
-</table><h2 id="links">Links</h2><p><a href="https://www.google.com">https://www.google.com</a></p><p><a href="mailto:nobody@example.com">nobody@example.com</a></p><p><a href="https://www.google.com">Some link</a></p><h2 id="images">Images</h2><p><img src="https://octodex.github.com/images/minion.png" alt="Minion"></p><p><img src="https://octodex.github.com/images/stormtroopocat.jpg" alt="Alt text" title="The Stormtroopocat"></p>
+<span class="line"><span style="color: #f6f6f4">line 3 of code</span></span></code></pre><h2 id="tables">Tables</h2><p>| Col 1 | Col 2 | Col 3 |
+| ----- | ----- | ----- |
+| Hello | My | Friend |
+| Hello | My | Friend |
+| Hello | My | Friend |</p><p>Right aligned columns:</p><p>| Col 1 | Col 2 | Col 3 |
+| -----: | -----: | -----: |
+| Hello | My | Friend |
+| Hello | My | Friend |
+| Hello | My | Friend |</p><p>Centre aligned columns:</p><p>| Col 1 | Col 2 | Col 3 |
+| :-----: | :-----: | :-----: |
+| Hello | My | Friend |
+| Hello | My | Friend |
+| Hello | My | Friend |</p><h2 id="links">Links</h2><p><a href="https://www.google.com">https://www.google.com</a></p><p><a href="mailto:nobody@example.com">nobody@example.com</a></p><p><a href="https://www.google.com">Some link</a></p><h2 id="images">Images</h2><p><img src="https://octodex.github.com/images/minion.png" alt="Minion"></p><p><img src="https://octodex.github.com/images/stormtroopocat.jpg" alt="Alt text" title="The Stormtroopocat"></p>
 			</div>
 		</div>
 	</article>

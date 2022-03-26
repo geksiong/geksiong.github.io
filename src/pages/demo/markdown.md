@@ -101,6 +101,24 @@ function hello() {
 | Col 1 | Col 2 | Col 3 |
 | ----- | ----- | ----- |
 | Hello | My | Friend |
+| Hello | My | Friend |
+| Hello | My | Friend |
+
+Right aligned columns:
+
+| Col 1 | Col 2 | Col 3 |
+| -----: | -----: | -----: |
+| Hello | My | Friend |
+| Hello | My | Friend |
+| Hello | My | Friend |
+
+Centre aligned columns:
+
+| Col 1 | Col 2 | Col 3 |
+| :-----: | :-----: | :-----: |
+| Hello | My | Friend |
+| Hello | My | Friend |
+| Hello | My | Friend |
 
 ## Links
 

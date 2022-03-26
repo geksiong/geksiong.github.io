@@ -74,3 +74,28 @@
 .prose a {
   @apply text-main no-underline hover:underline hover:underline-offset-2 break-words;
 }
+
+.prose table {
+  @apply rounded-lg shadow-md;
+}
+
+.prose table th:first-child {
+  @apply rounded-tl-md;
+}
+
+.prose table th:last-child {
+  @apply rounded-tr-md;
+}
+
+.prose table th,
+.prose table td {
+  @apply px-4 py-2;
+}
+
+.prose table tr:hover {
+  @apply bg-lightshade text-main font-bold;
+}
+
+.prose th {
+  @apply font-bold font-heading bg-main text-lightshade;
+}

@@ -22,9 +22,9 @@ let content = {
 <BaseLayout content={content.title}>
   <div class="">
     <h2 class="text-3xl font-extrabold">{content.title}</h2>
-    <ul class="flex flex-wrap mt-8 space-x-8 font-semibold">
+    <ul class="flex flex-wrap mt-8 font-semibold">
       {allTagsData.map(tag => (
-        <li><a href={`/posts/tags/${tag.slug}`} class="p-1 text-sm tracking-wider uppercase rounded-md text-main hover:bg-main/20">{tag.name}</a></li>
+        <li class="mb-4 ml-0 mr-8"><a href={`/posts/tags/${tag.slug}`} class="p-1 tracking-wider uppercase rounded-md text-md text-main hover:bg-main/20">{tag.name}</a></li>
       ))}
     </ul>
   </div>

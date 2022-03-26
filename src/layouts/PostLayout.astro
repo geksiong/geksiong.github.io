@@ -34,7 +34,7 @@ let { content } = Astro.props;
 				<img src={ siteData.authors[content.author || siteData.default_author]?.image } alt="" class="w-12 h-12 border-2 rounded-full shadow-lg border-lightshade">
 				<p class="text-sm">
 					<span class="font-semibold">{siteData.authors[content.author || siteData.default_author]?.display_name || content.author }</span>
-					<br/>{ content.date && new Date(content.date).toDateString() }
+					<br/><span class="text-darkshade/50">{ content.date && new Date(content.date).toDateString() }</span>
 				</p>
 			</div>
 		</div>

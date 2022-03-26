@@ -33,16 +33,39 @@
 /* Typograhy Themes */
 .typography-default {
   --font-body: 'Mulish';
-  --font-heading: 'Karma';
-  --font-leading: 'Rubik';
+  --font-heading: 'Rubik';
+  --font-leading: 'Karma';
 }
 
 .prose pre {
   @apply shadow-lg;
 }
 
+.prose :where(code):not(:where([class~="not-prose"] *))::before {
+  content: "";
+}
+
+.prose :where(code):not(:where([class~="not-prose"] *))::after {
+  content: "";
+}
+
+.prose :where(code):not(:where([class~="not-prose"] *)) {
+  @apply bg-darkshade text-lightshade rounded-sm px-1;
+}
+
+.prose :where(blockquote p:first-of-type):not(:where([class~="not-prose"] *))::before {
+  content: "";
+}
+
+.prose :where(blockquote p:first-of-type):not(:where([class~="not-prose"] *))::after {
+  content: "";
+}
+
 .prose blockquote {
-  @apply text-xl shadow-lg py-1 border-l-darkshade border-l-4 pr-4;
+  @apply text-lg border-l-main border-l-4 pr-2;
   font-family: var(--font-leading);
-  background-color: hsl(var(--color-dark-shade) / 5%);
+}
+
+.prose a {
+  @apply text-main no-underline hover:underline hover:underline-offset-2 break-words;
 }

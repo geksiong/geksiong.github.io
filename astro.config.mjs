@@ -17,6 +17,7 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
           // If you need to provide options for the plugin, you can use an array and put the options as the second item.
           // ['remark-autolink-headings', { behavior: 'prepend'}],
           [
+            'remark-math',
             'remark-gfm',
             'remark-smartypants',
           ],
@@ -26,6 +27,7 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
           // If you need to provide options for the plugin, you can use an array and put the options as the second item.
           'rehype-slug',
           //['rehype-autolink-headings', { behavior: 'prepend'}],
+          ['rehype-katex', {} ],
         ],
         syntaxHighlight: 'shiki',
         // If you are using shiki, here you can define a global theme and

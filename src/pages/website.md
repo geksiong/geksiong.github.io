@@ -16,4 +16,5 @@ I've been around in the tech industry since the dotcom bubble days, and I've don
 
 ## Test Pages
 
-- [Markdown test](/demo/markdown) for this website.
+- [Markdown Test](/demo/markdown)
+- [Markdown Plugins](/demo/markdown-plugins)

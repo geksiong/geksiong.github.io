@@ -6,7 +6,7 @@ import PostPreview from '../../components/PostPreview.astro';
 import Paginator from '../../components/Paginator.astro';
 
 export async function getStaticPaths({rss, paginate}) {
-  const allPosts = Astro.fetchContent('./*.md');
+  const allPosts = Astro.fetchContent('./**/*.md');
   const sortedPosts = allPosts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
 
   rss({

@@ -47,6 +47,7 @@ Not sure why they don't make this the default setting.
 I verified it works by changing my ssh key to `0600` and successfully logging into my server.
 
 **References:**
+
 - https://www.turek.dev/posts/fix-wsl-file-permissions/
 - https://devblogs.microsoft.com/commandline/chmod-chown-wsl-improvements/
 
@@ -78,6 +79,7 @@ I originally thought to simply soft-link to my current config files from gitbash
 I tested with building the same project, one cloned inside WSL2, and the other cloned under Windows and mounted into WSL2. Building a project from a mounted Windows directory is indeed much slower.
 
 Is this a problem? Let's see...
+
 - For most languages which you can use VS Code for development, keep the projects inside WSL2, since you will need all that tooling you installed in the first place
 - Java projects can be developed using VS Code, but most will use IntelliJ or Eclipse. It appears that IntelliJ provides a way to work on your Java projects inside WSL2, and vice versa. Not sure about Eclipse.
 - Android projects could be a problem, especially React Native or Ionic projects, where the tooling resides in WSL2, but you need Android Studio to be able to access files in WSL2. **Pending research**
@@ -88,6 +90,7 @@ Is this a problem? Let's see...
 You can't run Docker out-of-the-box in Ubuntu for WSL2, as WSL2 _does not use systemd_. However, I did find that you can run dockerd and it seems to work.
 
 Fortunately, there is a very detailed guide on how to setup Docker nicely under WSL2:
+
 - https://dev.to/bowmanjd/you-probably-don-t-need-systemd-on-wsl-windows-subsystem-for-linux-49gn
 - https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9
 - https://dev.to/bowmanjd/using-podman-on-windows-subsystem-for-linux-wsl-58ji

@@ -3,14 +3,14 @@ layout: '@layouts/PostLayout.astro'
 
 title: Which Java Version Should I Use?
 date: 2020-08-06
+description: The Java landscape nowadays is more complicated than in the good old days. These are my notes to make sense of the confusing choices out there.
+
 
 tags:
   - java
   - tech notes
 ---
-> The Java landscape nowadays is more complicated than in the good old days. These are my notes to make sense of the confusing choices out there.
-
-#### TLDR;
+### TLDR;
 
 > I would say use AdoptOpenJDK's builds (https://adoptopenjdk.net), unless you are working for a client who can only use certified binaries, need commercial support, or has to use a legacy version of Java.
 > But most of us probably have Oracle's OpenJDK builds installed on our machines.

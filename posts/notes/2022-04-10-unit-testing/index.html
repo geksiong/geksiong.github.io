@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-pt-20">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>On Unit Testing</title>
+
+  <!-- KaTeX stylesheet -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
+<link rel="stylesheet" href="/assets/BaseLayout.319ff24b.css"></link>
+<link rel="stylesheet" href="/assets/PostLayout.17bd0ff9.css"></link>
+<link rel="stylesheet" href="/assets/global.554b62af.css"></link>
+</head>
+
+	<body class="theme-default typography-default font-body bg-background">
+		<div class="subpixel-antialiased text-darkshade">
+			<div class="flex flex-col min-h-screen space-y-12">
+				
+
+<header class="container sticky top-0 z-50 flex items-center justify-between w-full max-w-3xl px-6 py-4 mx-auto xl:max-w-5xl text-darkshade bg-lightshade astro-I6KJHHDB">
+	<a href="/" class="block h-6 text-2xl font-semibold hover:text-main astro-I6KJHHDB">
+		<img src="https://s.gravatar.com/avatar/f4fc421dae2d7fc4b8b66112f838f881?s=80" class="inline-block h-8 astro-I6KJHHDB"><span class="hidden pl-2 sm:inline-block astro-I6KJHHDB">Production Not Ready</span>
+	</a>
+
+	<div class="flex items-center astro-I6KJHHDB">
+		<!-- Main navigation -->
+		<nav class="hidden space-x-2 font-medium sm:block astro-I6KJHHDB">
+			<a href="/posts" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-I6KJHHDB">Posts</a><a href="/posts/tags" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-I6KJHHDB">Tags</a><a href="/website" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-I6KJHHDB">About</a><a href="/geksiong" class="p-1 hover:border-b-4 hover:border-main hover:text-main astro-I6KJHHDB">Bio</a>
+		</nav>
+
+		<!-- Dark Mode toggle -->
+		<!--button aria-label="Toggle Dark Mode" type="button" class="w-8 h-8 p-1 ml-1 mr-1 rounded sm:ml-4 hover:text-main">
+			<Icon name="tabler:moon" class="w-6"/>
+		</button -->
+
+		<!-- Mobile menu toggle -->
+		<div class="sm:hidden astro-I6KJHHDB">
+			<button type="button" aria-label="Toggle Menu" class="w-8 h-8 ml-1 mr-1 rounded astro-I6KJHHDB" onclick="toggleMobileMenu()">
+				<svg viewBox="0 0 24 24" id="menuOpenBtn" class="w-6 astro-I6KJHHDB" astro-icon="tabler:menu"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon-tabler"><path d="M4 8h16M4 16h16"/></g></svg>
+
+				<svg viewBox="0 0 24 24" id="menuCloseBtn" class="hidden w-6 astro-I6KJHHDB" astro-icon="tabler:x"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon-tabler"><path d="M18 6 6 18M6 6l12 12"/></g></svg>
+
+			</button>
+		</div>
+	</div>
+
+	<!-- Mobile menu -->
+	<div id="mobile_menu" class="fixed right-0 z-10 w-1/2 h-full duration-300 ease-in-out transform top-16 bg-darkshade text-lightshade hideMenu astro-I6KJHHDB">
+		<nav class="fixed h-full mt-8 astro-I6KJHHDB">
+			<div class="px-12 py-2 astro-I6KJHHDB">
+					<a href="/posts" class="text-2xl font-bold tracking-widest astro-I6KJHHDB">Posts</a>
+				</div><div class="px-12 py-2 astro-I6KJHHDB">
+					<a href="/posts/tags" class="text-2xl font-bold tracking-widest astro-I6KJHHDB">Tags</a>
+				</div><div class="px-12 py-2 astro-I6KJHHDB">
+					<a href="/website" class="text-2xl font-bold tracking-widest astro-I6KJHHDB">About</a>
+				</div><div class="px-12 py-2 astro-I6KJHHDB">
+					<a href="/geksiong" class="text-2xl font-bold tracking-widest astro-I6KJHHDB">Bio</a>
+				</div>
+		</nav>
+	</div>
+
+</header>
+
+<script>
+function toggleMobileMenu() {
+	var menu = document.getElementById("mobile_menu");
+	var openBtn = document.getElementById("menuOpenBtn");
+	var closeBtn = document.getElementById("menuCloseBtn");
+	if (menu.classList.contains("hideMenu")) {
+		// show menu and change the icon
+		menu.classList.remove("hideMenu");
+		openBtn.style.display = "none";
+		closeBtn.style.display = "block";
+	} else {
+		menu.classList.add("hideMenu");
+		openBtn.style.display = "block";
+		closeBtn.style.display = "none";
+	}
+}
+</script>
+
+				<main class="container flex-1 max-w-3xl px-6 mx-auto xl:max-w-5xl">
+					<article class="pb-8 space-y-6 md:space-y-8">
+
+		<div class="flex flex-wrap space-x-3 font-semibold">
+			<a href="/posts/tags/testing" class="p-1 text-sm tracking-wider uppercase rounded-md text-main hover:bg-main/20">testing</a><a href="/posts/tags/software-engineering" class="p-1 text-sm tracking-wider uppercase rounded-md text-main hover:bg-main/20">software engineering</a>
+		</div>
+
+		<h1 class="text-3xl font-bold font-heading md:tracking-normal md:text-4xl">On Unit Testing</h1>
+
+		<div class="text-xl font-leading text-darkshade/75">Some thoughts &amp; notes on the topic of Unit Testing</div>
+
+		<div class="flex flex-col items-start justify-between md:flex-row md:items-center">
+			<div class="flex items-center space-x-2">
+				<img src="https://s.gravatar.com/avatar/f4fc421dae2d7fc4b8b66112f838f881?s=80" alt="" class="w-12 h-12 border-2 rounded-full shadow-lg border-lightshade">
+				<p class="text-sm">
+					<span class="font-semibold">GS Low</span>
+					<br><span class="text-darkshade/50">Sun Apr 10 2022</span>
+				</p>
+			</div>
+		</div>
+
+    <div class="flex flex-col sm:flex-row-reverse">
+			<aside class="w-full pb-8 pl-6 sm:w-1/4 not-prose">
+		  <nav class="text-sm">
+					<div>
+						<h2 class="pb-4 text-sm font-semibold tracking-widest uppercase md:border-l-2 md:px-4 ">On This Page</h2>
+						<div class="flex flex-col">
+							<div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#why-should-we-write-tests-in-the-first-place" class="block w-full">Why should we write tests in the first place?</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#what-is-a-unit-test" class="block w-full">What is a unit test?</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#what-makes-a-good-unit-test" class="block w-full">What makes a good unit test?</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#unit-testing-best-practices" class="block w-full">Unit Testing Best Practices</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#what-might-be-the-difficulties-faced-by-developers" class="block w-full">What might be the difficulties faced by developers?</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#miscellaneous-stuff" class="block w-full">Miscellaneous stuff</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style="padding-left: 0.5rem;"><a href="#document-driven-design" class="block w-full">Document Driven Design?</a></div></div>
+						</div>
+					</div>
+				</nav>
+			</aside>
+
+			<div class="w-full prose sm:w-3/4 max-w-none">
+				<p><em>This post is a stub, to be potentially expanded upon in the future</em></p><p>It is a long-running joke in the developer community that developers hate writing tests, and I can attest to that from my experience and observations as well. Despite all the collective wisdom about how we should all be writing unit tests and how these tests help with future enhancements and regression, many projects end up not having enough tests, or tests that are there mainly to chalk up sufficient code coverage to satisfy the client.</p><h2 id="why-should-we-write-tests-in-the-first-place">Why should we write tests in the first place?</h2><blockquote>
+<p>"Testing is the activity of implementing a program or system with the sole aim of finding errors" (Myers, 1979)</p>
+</blockquote><p>Contrary to what some developers may think, testing is not done to see if something works, or worse, to get enough code coverage to keep the client or management happy — it is to test <em>if it doesn't work</em>.</p><p>Rather than treating code coverage as a chore, we should think of code coverage as an indication of whether our codes are aligned to business use cases. Code coverage tells you whether your test cases reach those lines of codes. If there is no test case that reaches those lines, then how do we know the scenario is even required in the first place?</p><p>The value of unit tests is most appreciated when we have to deal with regression scenarios later, e.g. when modifying an existing feature. The number of broken test cases arising from a small change may also help us to assess the change impact (although in reality it is probably not so simple).</p><h2 id="what-is-a-unit-test">What is a unit test?</h2><blockquote>
+<p>A unit is the smallest piece of code in your program that is repeatable, testable, and functional. Units can be functions, classes, methods, and so on.</p>
+</blockquote><p>Unit tests focus on testing the units comprising the system. In theory, since they are smallest components in the system, they should be easy to test and quick to run.</p><p>The "testing pyramid" recommends that unit tests form the majority of tests.</p><h2 id="what-makes-a-good-unit-test">What makes a good unit test?</h2><p>I came across this acronym FIRST which helps as a mnemonic:</p><ul>
+<li><strong>Fast</strong> - Fast to write, fast to execute.</li>
+<li><strong>Independent</strong> - Does not depend on outcome of previous tests. Tests should be able to run in any sequence.</li>
+<li><strong>Repeatable</strong> - Does not depend on external factors. Given the same inputs, the same outcome is always obtained. Hence, the only a test can fail (once correct), is that there is a bug in the implementation.</li>
+<li><strong>Self-Validating</strong> - Don't require humans to read logs, etc, to decide whether the test passed.</li>
+<li><strong>Timely</strong> - Write tests together with the codes as they evolve over time. Don't introduce them just before going into production.</li>
+</ul><h2 id="unit-testing-best-practices">Unit Testing Best Practices</h2><p>This is a list of unit testing best practices I collected so far:</p><ul>
+<li><strong>Write Readable Tests</strong>
+<ul>
+<li><strong>Arrange, Act, Assert</strong> - all tests should follow this pattern.</li>
+<li><strong>Consistent naming convention</strong> - what unit is tested, what scenario, expected result</li>
+<li>It should be <em>quick and easy</em> to know <em>what the test does</em>.
+<ul>
+<li>Too often the test codes are overwhelmed by setup codes (i.e. the "Arrange" section), which are also copy-paste-edited to other similar test scenarios - these should be refactored out.</li>
+<li>It's worse when there are loops and conditional logic</li>
+<li>Keep <em>implementation details out of the test</em>.</li>
+<li>Write out the desired operation and assert first, this should inform what functions you should implement. In a sense what we are doing is to create a "business language" to describe your test.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Avoid Magic Numbers</strong>
+<ul>
+<li>i.e. numbers without any explanation what they are</li>
+</ul>
+</li>
+<li>You should not be testing <em>private methods</em> directly</li>
+<li>The test should not require change when you change the implementation of the interface?
+<ul>
+<li>Should only need to change if the interface itself changed (this include the returned result)</li>
+</ul>
+</li>
+<li><strong>Tests are Deterministic</strong>
+<ul>
+<li>Ensure tests do not depend on other test cases (a common fault, and many test runners prefer to determine the test order automatically)</li>
+<li>If you want tests to be coupled together, they should be grouped together</li>
+</ul>
+</li>
+<li><strong>Reduce test dependencies</strong></li>
+<li><strong>Assert only one thing</strong>. One use case per unit test</li>
+<li><strong>Parameterised tests</strong>
+<ul>
+<li>Don't just copy, paste and edit. If you are doing that, it generally means something...</li>
+</ul>
+</li>
+<li><strong>Write tests during development</strong>, not after...</li>
+<li><strong>Automate the tests</strong></li>
+<li><strong>Maintain the tests</strong>
+<ul>
+<li>If a test is broken (due to changes in requirements), <em>fix it</em>!</li>
+</ul>
+</li>
+<li><strong>Keep proper test documentation</strong></li>
+</ul><h2 id="what-might-be-the-difficulties-faced-by-developers">What might be the difficulties faced by developers?</h2><p>Here are some possible reasons why a developer might not write unit tests. I might discuss them further in the future.</p><ul>
+<li>Not understanding what makes a component <em>testable</em> in the first place.</li>
+<li>Not sure which <em>layer of abstraction</em> should the unit test address. Frontend and backend testing have different approaches as well.</li>
+<li>Writing tests that depends on previous tests - tests therefore run slower.</li>
+<li>Not understanding that <em>unit tests are also code</em>, with all the best practices about being readable, commented, maintainable, etc. Like codes, unit tests may also need re-factoring.</li>
+<li>Not having <em>enough time</em> for writing tests, which could be due to personal or external reasons.</li>
+<li>No one to advise on <em>organising the tests</em> - running the entire suite may take too long.</li>
+</ul><h2 id="miscellaneous-stuff">Miscellaneous stuff</h2><h3 id="document-driven-design">Document Driven Design?</h3><p>Recently I came across an article describing what the author termed as "Document Driven Development" (or "Design Driven Development", as compared to "Test Driven" and "Behaviour Driven"). I haven't come across this term before, and after googling around it turns out this is a term that has been floating around for years. I'm not sure what might be the cause that led to the coining of this term, but to me all professional application development are based on documented requirements, and it is foolish to write tests or codes before doing any initial design or documentation. Even for TDD which advocates writing tests first before any development, it doesn't say to start without any design in mind. Documenting your design is the best way to review it and ensure that it is correct, and that it addresses the requirements. Don't keep the design in your mind, especially if you are working in a team. And don't tell me your unit tests (and codes) are a living documentation of the requirements - definitely not at the unit test level. To me, that "Document Driven Development" even exists, is a symptom of people not understanding testing...</p>
+			</div>
+		</div>
+	</article>
+				</main>
+				<div class="container flex flex-col items-center max-w-3xl px-6 mx-auto xl:max-w-5xl">
+	<div class="flex space-x-4">
+		<a target="_blank" href="https://twitter.com/geksiong">
+				<span class="sr-only">twitter</span>
+				<svg viewBox="0 0 24 24" class="w-8 hover:text-main" astro-icon="tabler:brand-twitter"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753C20.18 7.773 21.692 5.25 22 4.009z"/></svg>
+
+			</a><a target="_blank" href="https://github.com/geksiong">
+				<span class="sr-only">github</span>
+				<svg viewBox="0 0 24 24" class="w-8 hover:text-main" astro-icon="tabler:brand-github"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+
+			</a>
+	</div>
+</div>
+
+
+		<footer class="container flex flex-col max-w-3xl px-6 pt-6 mx-auto md:flex-row md:place-content-between xl:max-w-5xl text-darkshade bg-lightshade">
+			<p>Built with
+				<a target="_blank" href="https://www.astro.build">
+					<svg viewBox="0 0 32 32" class="inline w-6 text-darkshade hover:text-main" astro-icon="vscode-icons:file-type-astro"><path fill="#ff5d01" fill-rule="evenodd" d="M5.9 18.847a7.507 7.507 0 0 0-.572 2.624 3.265 3.265 0 0 0 .551 1.553 7.427 7.427 0 0 0 2.093 1.681l5.128 3.414a7.332 7.332 0 0 0 2.1 1.168 3.239 3.239 0 0 0 1.5 0 7.381 7.381 0 0 0 2.117-1.16L24 24.711a7.512 7.512 0 0 0 2.117-1.688 3.241 3.241 0 0 0 .55-1.563 7.515 7.515 0 0 0-.587-2.643L21.547 4.551a3.973 3.973 0 0 0-.54-1.3 1.733 1.733 0 0 0-.7-.51 3.972 3.972 0 0 0-1.4-.122h-5.902a3.932 3.932 0 0 0-1.4.125 1.713 1.713 0 0 0-.7.512 3.94 3.94 0 0 0-.535 1.3L5.9 18.848zm13.24-13.2a3.329 3.329 0 0 1 .441 1.093l3.892 12.784a16.168 16.168 0 0 0-4.653-1.573l-2.529-8.56a.331.331 0 0 0-.513-.169.323.323 0 0 0-.119.169l-2.5 8.557a16.14 16.14 0 0 0-4.674 1.579l3.908-12.784a3.281 3.281 0 0 1 .442-1.094 1.458 1.458 0 0 1 .582-.43 3.31 3.31 0 0 1 1.175-.1h2.793a3.314 3.314 0 0 1 1.176.1 1.454 1.454 0 0 1 .583.432zM16.127 21.06a5.551 5.551 0 0 0 3.4-.923 2.8 2.8 0 0 1-.207 2.182 3.938 3.938 0 0 1-1.547 1.481c-.674.428-1.254.8-1.254 1.787a2.079 2.079 0 0 0 .209.914 2.49 2.49 0 0 1-1.535-2.3v-.061c0-.683 0-1.524-.962-1.524a1.028 1.028 0 0 0-.391.077 1.021 1.021 0 0 0-.552.551 1.03 1.03 0 0 0-.079.391 3.769 3.769 0 0 1-.988-2.644 4.206 4.206 0 0 1 .175-1.248c.4.757 1.92 1.32 3.731 1.32z"/></svg>
+
+				</a>
+				and
+				<a target="_blank" href="https://www.tailwindcss.com">
+					<svg viewBox="0 0 32 32" class="inline w-6 text-darkshade hover:text-main" astro-icon="vscode-icons:file-type-tailwind"><path fill="#44a8b3" d="M9 13.7q1.4-5.6 7-5.6c5.6 0 6.3 4.2 9.1 4.9q2.8.7 4.9-2.1-1.4 5.6-7 5.6c-5.6 0-6.3-4.2-9.1-4.9q-2.8-.7-4.9 2.1zm-7 8.4q1.4-5.6 7-5.6c5.6 0 6.3 4.2 9.1 4.9q2.8.7 4.9-2.1-1.4 5.6-7 5.6c-5.6 0-6.3-4.2-9.1-4.9q-2.8-.7-4.9 2.1z"/></svg>
+
+				</a>
+			</p>
+			<p>© 2022 GS Low. All views expressed are personal.</p>
+		</footer>
+
+			</div>
+		</div>
+  </body></html>

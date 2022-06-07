@@ -3,11 +3,11 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import {generateTagData} from '../../../utils/helpers.js';
 
-const allPosts = Astro.fetchContent('../*.md');
+const allPosts = await Astro.glob('../*.md');
 const allTagsUnique = new Set();
 
 allPosts.forEach(post => {
-  post.tags && post.tags.map(tag => {
+  post.frontmatter.tags && post.frontmatter.tags.map(tag => {
     allTagsUnique.add(tag);
   })
 })

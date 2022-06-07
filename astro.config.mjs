@@ -3,12 +3,9 @@
 
 // @ts-check
 export default /** @type {import('astro').AstroUserConfig} */ ({
-  buildOptions: {
-    site: 'https://geksiong.github.io',
-  },
-	// Comment out "renderers: []" to enable Astro's default component support.
-	renderers: [],
-  markdownOptions: {
+  site: 'https://geksiong.github.io',
+	integrations: [],
+  markdown: {
     render: [
       '@astrojs/markdown-remark',
       {

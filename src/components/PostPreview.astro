@@ -17,14 +17,14 @@ let { post, tags } = Astro.props;
   </div>
 
   <h3 class="text-2xl font-bold tracking-normal hover:text-main">
-    <a href={ post.url }>{ post.title }</a>
+    <a href={ post.url }>{ post.frontmatter.title }</a>
   </h3>
-  <p class="max-w-full text-darkshade/75">{ post.description }</p>
+  <p class="max-w-full text-darkshade/75">{ post.frontmatter.description }</p>
 
   <dl>
     <dt class="sr-only">Published on</dt>
     <dd class="text-sm">
-      <time datetime="2021-01-12" class="text-darkshade/50">{ new Date(post.date).toDateString()  }</time>
+      <time datetime="2021-01-12" class="text-darkshade/50">{ new Date(post.frontmatter.date).toDateString()  }</time>
     </dd>
   </dl>
 

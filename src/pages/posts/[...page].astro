@@ -6,8 +6,8 @@ import PostPreview from '../../components/PostPreview.astro';
 import Paginator from '../../components/Paginator.astro';
 
 export async function getStaticPaths({rss, paginate}) {
-  const allPosts = Astro.fetchContent('./**/*.md');
-  const sortedPosts = allPosts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+  const allPosts = await Astro.glob('./**/*.md');
+  const sortedPosts = allPosts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
 
   rss({
     // The RSS Feed title, description, and custom metadata.
@@ -16,10 +16,10 @@ export async function getStaticPaths({rss, paginate}) {
     customData: `<language>en-us</language>`,
     // The list of items for your RSS feed, sorted.
     items: sortedPosts.map(item => ({
-      title: item.title,
-      description: item.description,
+      title: item.frontmatter.title,
+      description: item.frontmatter.description,
       link: item.url,
-      pubDate: item.date,
+      pubDate: item.frontmatter.date,
     })),
     // Optional: Customize where the file is written to.
     // Otherwise, defaults to "/rss.xml"

@@ -5,12 +5,12 @@ import PostPreview from '../../../components/PostPreview.astro';
 import { generateTagData } from '../../../utils/helpers.js'
 
 export async function getStaticPaths() {
-  const allPosts = Astro.fetchContent('../*.md');
-  const sortedPosts = allPosts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+  const allPosts = await Astro.glob('../*.md');
+  const sortedPosts = allPosts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
 
   const allTagsUnique = new Set();
   sortedPosts.forEach(post => {
-    post.tags && post.tags.map(tag => {
+    post.frontmatter.tags && post.frontmatter.tags.map(tag => {
       allTagsUnique.add(tag);
     })
   })
@@ -18,7 +18,7 @@ export async function getStaticPaths() {
    // map through the tags array
   return allTagsData.map((tag) => {
     // filter the posts that match the given tag
-    const posts = sortedPosts.filter((post) => post.tags && post.tags.includes(tag.name))
+    const posts = sortedPosts.filter((post) => post.frontmatter.tags && post.frontmatter.tags.includes(tag.name))
     return {
       params: {slug: tag.slug},
       props: {

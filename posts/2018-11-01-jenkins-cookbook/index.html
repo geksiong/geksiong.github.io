@@ -7,9 +7,7 @@
 
   <!-- KaTeX stylesheet -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
-<link rel="stylesheet" href="/assets/BaseLayout.319ff24b.css"></link>
-<link rel="stylesheet" href="/assets/PostLayout.17bd0ff9.css"></link>
-<link rel="stylesheet" href="/assets/global.554b62af.css"></link>
+<link rel="stylesheet" href="/assets/asset.454ae0fa.css"></link><script type="module" src="/entry.fe8c211311.js" astro-script="/posts/2018-11-01-jenkins-cookbook/script-0"></script>
 </head>
 
 	<body class="theme-default typography-default font-body bg-background">
@@ -61,23 +59,7 @@
 
 </header>
 
-<script>
-function toggleMobileMenu() {
-	var menu = document.getElementById("mobile_menu");
-	var openBtn = document.getElementById("menuOpenBtn");
-	var closeBtn = document.getElementById("menuCloseBtn");
-	if (menu.classList.contains("hideMenu")) {
-		// show menu and change the icon
-		menu.classList.remove("hideMenu");
-		openBtn.style.display = "none";
-		closeBtn.style.display = "block";
-	} else {
-		menu.classList.add("hideMenu");
-		openBtn.style.display = "block";
-		closeBtn.style.display = "none";
-	}
-}
-</script>
+
 
 				<main class="container flex-1 max-w-3xl px-6 mx-auto xl:max-w-5xl">
 					<article class="pb-8 space-y-6 md:space-y-8">
@@ -113,232 +95,232 @@ function toggleMobileMenu() {
 			</aside>
 
 			<div class="w-full prose sm:w-3/4 max-w-none">
-				<h1 id="basic-declarative-pipeline">Basic Declarative Pipeline</h1><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #F6F6F4">pipeline {</span></span>
-<span class="line"><span style="color: #F6F6F4">    agent any</span></span>
-<span class="line"><span style="color: #F6F6F4">    stages {</span></span>
-<span class="line"><span style="color: #F6F6F4">        </span><span style="color: #62E884">stage</span><span style="color: #F6F6F4">(</span><span style="color: #DEE492">&#39;</span><span style="color: #E7EE98">checkout</span><span style="color: #DEE492">&#39;</span><span style="color: #F6F6F4">) {</span></span>
-<span class="line"><span style="color: #F6F6F4">            steps {</span></span>
-<span class="line"><span style="color: #F6F6F4">                </span><span style="color: #7B7F8B">// Steps here</span></span>
-<span class="line"><span style="color: #F6F6F4">            }</span></span>
-<span class="line"><span style="color: #F6F6F4">        }</span></span>
-<span class="line"><span style="color: #F6F6F4">        </span><span style="color: #62E884">stage</span><span style="color: #F6F6F4">(</span><span style="color: #DEE492">&#39;</span><span style="color: #E7EE98">build</span><span style="color: #DEE492">&#39;</span><span style="color: #F6F6F4">) {</span></span>
-<span class="line"><span style="color: #F6F6F4">            steps {</span></span>
-<span class="line"><span style="color: #F6F6F4">                </span><span style="color: #7B7F8B">// Steps here</span></span>
-<span class="line"><span style="color: #F6F6F4">            }</span></span>
-<span class="line"><span style="color: #F6F6F4">        }</span></span>
-<span class="line"><span style="color: #F6F6F4">        </span><span style="color: #62E884">stage</span><span style="color: #F6F6F4">(</span><span style="color: #DEE492">&#39;</span><span style="color: #E7EE98">tests</span><span style="color: #DEE492">&#39;</span><span style="color: #F6F6F4">) {</span></span>
-<span class="line"><span style="color: #F6F6F4">            parallel {</span></span>
-<span class="line"><span style="color: #F6F6F4">                </span><span style="color: #62E884">stage</span><span style="color: #F6F6F4">(</span><span style="color: #DEE492">&#39;</span><span style="color: #E7EE98">AAA</span><span style="color: #DEE492">&#39;</span><span style="color: #F6F6F4">) {</span></span>
-<span class="line"><span style="color: #F6F6F4">                    steps {</span></span>
-<span class="line"><span style="color: #F6F6F4">                        </span><span style="color: #7B7F8B">// ...</span></span>
-<span class="line"><span style="color: #F6F6F4">                        }</span></span>
-<span class="line"><span style="color: #F6F6F4">                    }</span></span>
-<span class="line"><span style="color: #F6F6F4">                }</span></span>
-<span class="line"><span style="color: #F6F6F4">                </span><span style="color: #62E884">stage</span><span style="color: #F6F6F4">(</span><span style="color: #DEE492">&#39;</span><span style="color: #E7EE98">BBB</span><span style="color: #DEE492">&#39;</span><span style="color: #F6F6F4">) {</span></span>
-<span class="line"><span style="color: #F6F6F4">                    steps {</span></span>
-<span class="line"><span style="color: #F6F6F4">                        </span><span style="color: #7B7F8B">// ...    </span></span>
-<span class="line"><span style="color: #F6F6F4">                    }</span></span>
-<span class="line"><span style="color: #F6F6F4">                }</span></span>
-<span class="line"><span style="color: #F6F6F4">            }</span></span>
-<span class="line"><span style="color: #F6F6F4">        }</span></span>
-<span class="line"><span style="color: #F6F6F4">    }</span></span>
-<span class="line"><span style="color: #F6F6F4">    post {</span></span>
-<span class="line"><span style="color: #F6F6F4">        always {</span></span>
-<span class="line"><span style="color: #F6F6F4">            echo </span><span style="color: #DEE492">&#39;</span><span style="color: #E7EE98">One way or another, I have finished</span><span style="color: #DEE492">&#39;</span></span>
-<span class="line"><span style="color: #F6F6F4">            </span><span style="color: #62E884">deleteDir</span><span style="color: #F6F6F4">() </span><span style="color: #7B7F8B">/* clean up our workspace */</span></span>
-<span class="line"><span style="color: #F6F6F4">        }</span></span>
-<span class="line"><span style="color: #F6F6F4">        success {</span></span>
-<span class="line"><span style="color: #F6F6F4">            echo </span><span style="color: #DEE492">&#39;</span><span style="color: #E7EE98">I succeeeded!</span><span style="color: #DEE492">&#39;</span></span>
-<span class="line"><span style="color: #F6F6F4">        }</span></span>
-<span class="line"><span style="color: #F6F6F4">        unstable {</span></span>
-<span class="line"><span style="color: #F6F6F4">            echo </span><span style="color: #DEE492">&#39;</span><span style="color: #E7EE98">I am unstable :/</span><span style="color: #DEE492">&#39;</span></span>
-<span class="line"><span style="color: #F6F6F4">        }</span></span>
-<span class="line"><span style="color: #F6F6F4">        failure {</span></span>
-<span class="line"><span style="color: #F6F6F4">            echo </span><span style="color: #DEE492">&#39;</span><span style="color: #E7EE98">I failed :(</span><span style="color: #DEE492">&#39;</span></span>
-<span class="line"><span style="color: #F6F6F4">        }</span></span>
-<span class="line"><span style="color: #F6F6F4">        changed {</span></span>
-<span class="line"><span style="color: #F6F6F4">            echo </span><span style="color: #DEE492">&#39;</span><span style="color: #E7EE98">Things were different before...</span><span style="color: #DEE492">&#39;</span></span>
-<span class="line"><span style="color: #F6F6F4">        }</span></span>
-<span class="line"><span style="color: #F6F6F4">    }</span></span>
-<span class="line"><span style="color: #F6F6F4">}</span></span></code></pre><h1 id="checkout-from-git-with-credentials-not-needed-for-multi-branch-pipelines">Checkout from git with credentials (not needed for multi-branch pipelines)</h1><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">        stage(&#39;checkout&#39;) {</span></span>
-<span class="line"><span style="color: #f6f6f4">            steps {</span></span>
-<span class="line"><span style="color: #f6f6f4">                git url: &#39;&lt;git url&gt;&#39;, branch: &#39;&lt;branch&gt;&#39;, credentialsId: &#39;&lt;jenkins credId&gt;&#39;</span></span>
-<span class="line"><span style="color: #f6f6f4">                // ...</span></span>
-<span class="line"><span style="color: #f6f6f4">            }</span></span>
-<span class="line"><span style="color: #f6f6f4">        }</span></span></code></pre><h1 id="poll-git-for-changes-regularly-not-needed-for-multi-branch-pipelines">Poll git for changes regularly (not needed for multi-branch pipelines)</h1><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">pipeline {</span></span>
-<span class="line"><span style="color: #f6f6f4">    agent any</span></span>
-<span class="line"><span style="color: #f6f6f4">    triggers { pollSCM(&#39;H 07 * * 1&#39;) }</span></span>
-<span class="line"><span style="color: #f6f6f4">    stages {</span></span>
-<span class="line"><span style="color: #f6f6f4">        stage(&#39;checkout&#39;) {</span></span>
-<span class="line"><span style="color: #f6f6f4">            steps {</span></span>
-<span class="line"><span style="color: #f6f6f4">                git url: &#39;&lt;git url&gt;&#39;, branch: &#39;&lt;branch&gt;&#39;, credentialsId: &#39;&lt;jenkins credId&gt;&#39;, poll: true</span></span>
-<span class="line"><span style="color: #f6f6f4">                // ...</span></span>
-<span class="line"><span style="color: #f6f6f4">            }</span></span>
-<span class="line"><span style="color: #f6f6f4">        }</span></span>
-<span class="line"><span style="color: #f6f6f4">    }</span></span></code></pre><h1 id="ansicolor-output">AnsiColor output</h1><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">        stage(&#39;AAA&#39;) {</span></span>
-<span class="line"><span style="color: #f6f6f4">            steps {</span></span>
-<span class="line"><span style="color: #f6f6f4">                ansiColor(&#39;xterm&#39;) {</span></span>
-<span class="line"><span style="color: #f6f6f4">                    // ...  </span></span>
-<span class="line"><span style="color: #f6f6f4">                }</span></span>
-<span class="line"><span style="color: #f6f6f4">            }</span></span>
-<span class="line"><span style="color: #f6f6f4">	}</span></span></code></pre><h1 id="set-environment-variables-various-ways">Set environment variables (various ways)</h1><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">    stages {</span></span>
-<span class="line"><span style="color: #f6f6f4">        environment {</span></span>
-<span class="line"><span style="color: #f6f6f4">            GLOBALVAR = &#39;this is a global variable&#39;</span></span>
-<span class="line"><span style="color: #f6f6f4">        }</span></span>
-<span class="line"><span style="color: #f6f6f4">        stage(&#39;AAA&#39;) {</span></span>
-<span class="line"><span style="color: #f6f6f4">            environment {</span></span>
-<span class="line"><span style="color: #f6f6f4">                 STAGEVAR = &#39;this is a stage variable&#39;</span></span>
-<span class="line"><span style="color: #f6f6f4">            }</span></span>
-<span class="line"><span style="color: #f6f6f4">            steps {</span></span>
-<span class="line"><span style="color: #f6f6f4">	        script {</span></span>
-<span class="line"><span style="color: #f6f6f4">                    env.MYVAR = &quot;my variable&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                    env.VAR = &quot;the value of MYVAR is ${env.MYVAR}&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                    env.VARFROMPROGRAM = sh(returnStdout:true, script: &quot;&lt;run a program and even use ${env.VAR} here&gt;&quot;).trim()</span></span>
-<span class="line"><span style="color: #f6f6f4">                }</span></span>
-<span class="line"><span style="color: #f6f6f4">            }</span></span>
-<span class="line"><span style="color: #f6f6f4">        }</span></span>
-<span class="line"><span style="color: #f6f6f4">    }</span></span></code></pre><h1 id="inject-jenkins-credentials-into-environment-variable">Inject Jenkins credentials into environment variable</h1><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">        stage(&#39;AAA&#39;) {</span></span>
-<span class="line"><span style="color: #f6f6f4">            steps {</span></span>
-<span class="line"><span style="color: #f6f6f4">                withCredentials([usernameColonPassword(credentialsId: &#39;&lt;jenkins credId&#39;, variable: &#39;USERPASS&#39;)]) {</span></span>
-<span class="line"><span style="color: #f6f6f4">                    sh &quot;echo $USERPASS&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                }</span></span>
-<span class="line"><span style="color: #f6f6f4">            }</span></span>
-<span class="line"><span style="color: #f6f6f4">        }</span></span></code></pre><h1 id="select-jdk-and-maven-version-defined-in-jenkins">Select JDK and Maven version (defined in Jenkins)</h1><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">        stage(&#39;AAA&#39;) {</span></span>
-<span class="line"><span style="color: #f6f6f4">            steps {</span></span>
-<span class="line"><span style="color: #f6f6f4">                withEnv([&quot;JAVA_HOME=${tool &#39;JDK 8&#39;}&quot;,&quot;PATH+MAVEN=${tool &#39;Maven 3&#39;}/bin:${env.JAVA_HOME}/bin&quot;]) {</span></span>
-<span class="line"><span style="color: #f6f6f4">                    sh &quot;mvn -Dmaven.test.skip=true clean package&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                    // ...</span></span>
-<span class="line"><span style="color: #f6f6f4">                }</span></span>
-<span class="line"><span style="color: #f6f6f4">            }</span></span>
-<span class="line"><span style="color: #f6f6f4">        }</span></span></code></pre><h1 id="ignore-exit-code-while-inside-a-shell-step">Ignore exit code while inside a shell step</h1><p>A shell step invokes bash with -xe options. Setting +e will disable immediate exit from an earlier failed step. Note that the earlier exit code will always be 0. If your intent is to capture the exit code but not fail the step, then see the next section.</p><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">                stage(&#39;AAA&#39;) {</span></span>
-<span class="line"><span style="color: #f6f6f4">                    steps {</span></span>
-<span class="line"><span style="color: #f6f6f4">                        sh &quot;&quot;&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                            set +e</span></span>
-<span class="line"><span style="color: #f6f6f4">                            // do something...</span></span>
-<span class="line"><span style="color: #f6f6f4">                            set -e</span></span>
-<span class="line"><span style="color: #f6f6f4">			    // this line will run regardless of previous exit code</span></span>
-<span class="line"><span style="color: #f6f6f4">                        &quot;&quot;&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                    }</span></span>
-<span class="line"><span style="color: #f6f6f4">                }</span></span></code></pre><h1 id="ignore-exit-code-from-a-shell-step-and-capture-it">Ignore exit code from a shell step (and capture it)</h1><p>The shell step comes with a returnStatus option that will return the exit code and won't fail the step. This means you can capture the exit code and then defer the decision to fail the pipeline toward the end of the pipeline.</p><p>Note: for some reason, using environment variables will not work</p><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">def pipeline_should_fail = false</span></span>
-<span class="line"><span style="color: #f6f6f4">pipeline {</span></span>
-<span class="line"><span style="color: #f6f6f4">    ....</span></span>
-<span class="line"><span style="color: #f6f6f4">        stage(&#39;AAA&#39;) {</span></span>
-<span class="line"><span style="color: #f6f6f4">            steps {</span></span>
-<span class="line"><span style="color: #f6f6f4">                script {</span></span>
-<span class="line"><span style="color: #f6f6f4">                    def step_result = sh (returnStatus: true, script: &quot;&quot;&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                        // do something</span></span>
-<span class="line"><span style="color: #f6f6f4">                    &quot;&quot;&quot;)</span></span>
-<span class="line"><span style="color: #f6f6f4">		    if (step_result != 0) { pipeline_should_fail = true }</span></span>
-<span class="line"><span style="color: #f6f6f4">                    sh &quot;&quot;&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                        echo &#39;this line will run&#39;</span></span>
-<span class="line"><span style="color: #f6f6f4">                    &quot;&quot;&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                }</span></span>
-<span class="line"><span style="color: #f6f6f4">            }</span></span>
-<span class="line"><span style="color: #f6f6f4">	}</span></span>
-<span class="line"><span style="color: #f6f6f4">	// other stages</span></span>
-<span class="line"><span style="color: #f6f6f4">	</span></span>
-<span class="line"><span style="color: #f6f6f4">        post {</span></span>
-<span class="line"><span style="color: #f6f6f4">            always {</span></span>
-<span class="line"><span style="color: #f6f6f4">	        // fail the pipeline if the earlier stage failed</span></span>
-<span class="line"><span style="color: #f6f6f4">                script {</span></span>
-<span class="line"><span style="color: #f6f6f4">                    if (pipeline_should_fail) {</span></span>
-<span class="line"><span style="color: #f6f6f4">                        currentBuild.result = &quot;FAILURE&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                    }</span></span>
-<span class="line"><span style="color: #f6f6f4">                }</span></span>
-<span class="line"><span style="color: #f6f6f4">            }</span></span>
-<span class="line"><span style="color: #f6f6f4">        }</span></span></code></pre><h1 id="mark-pipeline-as-failed-when-a-stage-is-unstable">Mark pipeline as failed when a stage is unstable</h1><p>The post block is placed as the last step in a stage.</p><p>A stage is usually unstable when a Jenkins publisher determine so e.g. JUnit test has failures</p><p>You cannot mark a build as successful from unstable status.</p><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">            post {</span></span>
-<span class="line"><span style="color: #f6f6f4">                unstable {</span></span>
-<span class="line"><span style="color: #f6f6f4">                    script {</span></span>
-<span class="line"><span style="color: #f6f6f4">                        echo &quot;Problems encountered, marking build as FAILED&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                        currentBuild.result = &#39;FAILURE&#39;</span></span>
-<span class="line"><span style="color: #f6f6f4">                    }</span></span>
-<span class="line"><span style="color: #f6f6f4">                }</span></span>
-<span class="line"><span style="color: #f6f6f4">            }</span></span></code></pre><h1 id="run-sonarqube-analysis">Run SonarQube analysis</h1><p>Requires SonarQube plugin</p><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">               stage(&#39;sonar&#39;) {</span></span>
-<span class="line"><span style="color: #f6f6f4">                    steps {</span></span>
-<span class="line"><span style="color: #f6f6f4">                        withSonarQubeEnv(&#39;Sonar&#39;) {</span></span>
-<span class="line"><span style="color: #f6f6f4">                            script {</span></span>
-<span class="line"><span style="color: #f6f6f4">                                def sonar = tool name: &#39;Sonar Runner&#39;, type: &#39;hudson.plugins.sonar.SonarRunnerInstallation&#39;</span></span>
-<span class="line"><span style="color: #f6f6f4">                                sh &quot;&quot;&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                                $sonar/bin/sonar-scanner -e -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONAR_AUTH_TOKEN} \</span></span>
-<span class="line"><span style="color: #f6f6f4">                                    -Dsonar.projectName=&#39;&lt;project name&gt;&#39; \</span></span>
-<span class="line"><span style="color: #f6f6f4">                                    -Dsonar.projectVersion=&lt;version&gt; \</span></span>
-<span class="line"><span style="color: #f6f6f4">                                    -Dsonar.projectKey=&lt;project key&gt; \</span></span>
-<span class="line"><span style="color: #f6f6f4">                                    -Dsonar.sources=&lt;sources paths, no wildcards&gt; \</span></span>
-<span class="line"><span style="color: #f6f6f4">				    -Dsonar.inclusions=&lt;inclusions paths, wildcards ok&gt; \</span></span>
-<span class="line"><span style="color: #f6f6f4">                                    -Dsonar.exclusions=&lt;exclusions paths, wildcards ok&gt; \</span></span>
-<span class="line"><span style="color: #f6f6f4">                                    -Dsonar.java.binaries=&lt;java binaries paths, no wildcards&gt; \</span></span>
-<span class="line"><span style="color: #f6f6f4">				    -Dsonar.java.libraries=&lt;java libraries paths, wildcards ok&gt; \</span></span>
-<span class="line"><span style="color: #f6f6f4">				    -Dsonar.junit.reportPaths=&lt;surefire report paths, wildcards ok&gt;</span></span>
-<span class="line"><span style="color: #f6f6f4">                                &quot;&quot;&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                            }</span></span>
-<span class="line"><span style="color: #f6f6f4">                        }</span></span>
-<span class="line"><span style="color: #f6f6f4">                   }</span></span>
-<span class="line"><span style="color: #f6f6f4">                }</span></span></code></pre><h1 id="archive-buildtest-artifacts">Archive build/test artifacts</h1><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">    post {</span></span>
-<span class="line"><span style="color: #f6f6f4">        always {</span></span>
-<span class="line"><span style="color: #f6f6f4">            archiveArtifacts artifacts: &#39;build/libs/**/*.jar&#39;, fingerprint: true</span></span>
-<span class="line"><span style="color: #f6f6f4">            junit &#39;build/reports/**/*.xml&#39;</span></span>
-<span class="line"><span style="color: #f6f6f4">        }</span></span>
-<span class="line"><span style="color: #f6f6f4">    }</span></span></code></pre><h1 id="sending-notification-to-email--slack">Sending notification to Email / Slack</h1><p>Requires Email-ext and Slack plugins</p><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">    post {</span></span>
-<span class="line"><span style="color: #f6f6f4">        always {</span></span>
-<span class="line"><span style="color: #f6f6f4">	    script {</span></span>
-<span class="line"><span style="color: #f6f6f4">                if (currentBuild.currentResult == &#39;SUCCESS&#39;) {</span></span>
-<span class="line"><span style="color: #f6f6f4">                    env.SLACKCOLOR = &quot;good&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                } else {</span></span>
-<span class="line"><span style="color: #f6f6f4">                    env.SLACKCOLOR = &quot;danger&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                }</span></span>
-<span class="line"><span style="color: #f6f6f4">                env.GITCOMMIT = sh(returnStdout:true, script: &#39;git rev-parse HEAD | cut -c 1-6&#39;).trim()</span></span>
-<span class="line"><span style="color: #f6f6f4">                env.GITCOMMITUSER = sh(returnStdout:true, script: &quot;git --no-pager show -s --format=&#39;%an&#39; ${env.GITCOMMIT}&quot;).trim()</span></span>
-<span class="line"><span style="color: #f6f6f4">                env.GITCOMMITMSG = sh(returnStdout: true, script: &#39;git log -1 --pretty=%B&#39;).trim()</span></span>
-<span class="line"><span style="color: #f6f6f4"></span></span>
-<span class="line"><span style="color: #f6f6f4">                env.SLACKMSG = &quot;&quot;&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                    *${currentBuild.currentResult}: &lt;${env.BUILD_URL}|${env.JOB_NAME} #${env.BUILD_NUMBER}&gt;*</span></span>
-<span class="line"><span style="color: #f6f6f4">                    commit ${env.GITCOMMIT} ${env.GITCOMMITMSG}</span></span>
-<span class="line"><span style="color: #f6f6f4">                    by ${env.GITCOMMITUSER} on branch ${env.BRANCH_NAME}</span></span>
-<span class="line"><span style="color: #f6f6f4">                    &quot;&quot;&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4"></span></span>
-<span class="line"><span style="color: #f6f6f4">                env.EMAILMSG = &quot;&quot;&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                    ${currentBuild.currentResult}: ${env.JOB_NAME} #${env.BUILD_NUMBER}:</span></span>
-<span class="line"><span style="color: #f6f6f4">                    Commit ${env.GITCOMMIT} ${env.GITCOMMITMSG}</span></span>
-<span class="line"><span style="color: #f6f6f4">                            by ${env.GITCOMMITUSER} on branch ${env.BRANCH_NAME}</span></span>
-<span class="line"><span style="color: #f6f6f4"></span></span>
-<span class="line"><span style="color: #f6f6f4">                            Check console output at ${env.BUILD_URL} to view the results</span></span>
-<span class="line"><span style="color: #f6f6f4">                    &quot;&quot;&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">            }</span></span>
-<span class="line"><span style="color: #f6f6f4"></span></span>
-<span class="line"><span style="color: #f6f6f4">            slackSend (</span></span>
-<span class="line"><span style="color: #f6f6f4">                message: &quot;${env.SLACKMSG}&quot;,</span></span>
-<span class="line"><span style="color: #f6f6f4">                color: &quot;${env.SLACKCOLOR}&quot;,</span></span>
-<span class="line"><span style="color: #f6f6f4">                baseUrl: &quot;&lt;jenkins integration url from slack&gt;&quot;,</span></span>
-<span class="line"><span style="color: #f6f6f4">                channel: &quot;#&lt;channel&gt;&quot;,</span></span>
-<span class="line"><span style="color: #f6f6f4">                tokenCredentialId: &quot;&lt;jenkins credId&gt;&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                )</span></span>
-<span class="line"><span style="color: #f6f6f4">    	}</span></span>
-<span class="line"><span style="color: #f6f6f4">        failure {</span></span>
-<span class="line"><span style="color: #f6f6f4">            emailext (</span></span>
-<span class="line"><span style="color: #f6f6f4">                to: &quot;&lt;email addresses&gt;&quot;,</span></span>
-<span class="line"><span style="color: #f6f6f4">                subject: &quot;FAIL: ${env.JOB_NAME} #${env.BUILD_NUMBER}&quot;,</span></span>
-<span class="line"><span style="color: #f6f6f4">                body: &quot;${env.EMAILMSG}&quot;</span></span>
-<span class="line"><span style="color: #f6f6f4">                )</span></span>
-<span class="line"><span style="color: #f6f6f4">        }</span></span>
-<span class="line"><span style="color: #f6f6f4">    }</span></span></code></pre><h1 id="invoke-owasp-dependency-check-scan">Invoke OWASP Dependency Check scan</h1><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">        stage(&#39;dependency-check&#39;) {</span></span>
-<span class="line"><span style="color: #f6f6f4">            steps {</span></span>
-<span class="line"><span style="color: #f6f6f4">                dependencyCheckAnalyzer scanpath: &#39;&#39;,</span></span>
-<span class="line"><span style="color: #f6f6f4">                    outdir: &#39;.&#39;,</span></span>
-<span class="line"><span style="color: #f6f6f4">                    datadir: &#39;&#39;,</span></span>
-<span class="line"><span style="color: #f6f6f4">                    suppressionFile: &#39;&#39;,</span></span>
-<span class="line"><span style="color: #f6f6f4">                    hintsFile: &#39;&#39;,</span></span>
-<span class="line"><span style="color: #f6f6f4">                    zipExtensions: &#39;&#39;,</span></span>
-<span class="line"><span style="color: #f6f6f4">                    isAutoupdateDisabled: false,</span></span>
-<span class="line"><span style="color: #f6f6f4">                    includeHtmlReports: true,</span></span>
-<span class="line"><span style="color: #f6f6f4">                    includeVulnReports: false,</span></span>
-<span class="line"><span style="color: #f6f6f4">                    includeJsonReports: false,</span></span>
-<span class="line"><span style="color: #f6f6f4">                    includeCsvReports: false,</span></span>
-<span class="line"><span style="color: #f6f6f4">                    skipOnScmChange: false,</span></span>
-<span class="line"><span style="color: #f6f6f4">                    skipOnUpstreamChange: false</span></span>
-<span class="line"><span style="color: #f6f6f4"></span></span>
-<span class="line"><span style="color: #f6f6f4">                dependencyCheckPublisher canComputeNew: false, defaultEncoding: &#39;&#39;, healthy: &#39;&#39;, pattern: &#39;&#39;, unHealthy: &#39;&#39;</span></span>
-<span class="line"><span style="color: #f6f6f4">            }</span></span>
-<span class="line"><span style="color: #f6f6f4">        }</span></span></code></pre>
+				<h1 id="basic-declarative-pipeline">Basic Declarative Pipeline</h1><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #C9D1D9">pipeline {</span></span>
+<span class="line"><span style="color: #C9D1D9">    agent any</span></span>
+<span class="line"><span style="color: #C9D1D9">    stages {</span></span>
+<span class="line"><span style="color: #C9D1D9">        stage(</span><span style="color: #A5D6FF">'checkout'</span><span style="color: #C9D1D9">) {</span></span>
+<span class="line"><span style="color: #C9D1D9">            steps {</span></span>
+<span class="line"><span style="color: #C9D1D9">                </span><span style="color: #8B949E">// Steps here</span></span>
+<span class="line"><span style="color: #C9D1D9">            }</span></span>
+<span class="line"><span style="color: #C9D1D9">        }</span></span>
+<span class="line"><span style="color: #C9D1D9">        stage(</span><span style="color: #A5D6FF">'build'</span><span style="color: #C9D1D9">) {</span></span>
+<span class="line"><span style="color: #C9D1D9">            steps {</span></span>
+<span class="line"><span style="color: #C9D1D9">                </span><span style="color: #8B949E">// Steps here</span></span>
+<span class="line"><span style="color: #C9D1D9">            }</span></span>
+<span class="line"><span style="color: #C9D1D9">        }</span></span>
+<span class="line"><span style="color: #C9D1D9">        stage(</span><span style="color: #A5D6FF">'tests'</span><span style="color: #C9D1D9">) {</span></span>
+<span class="line"><span style="color: #C9D1D9">            parallel {</span></span>
+<span class="line"><span style="color: #C9D1D9">                stage(</span><span style="color: #A5D6FF">'AAA'</span><span style="color: #C9D1D9">) {</span></span>
+<span class="line"><span style="color: #C9D1D9">                    steps {</span></span>
+<span class="line"><span style="color: #C9D1D9">                        </span><span style="color: #8B949E">// ...</span></span>
+<span class="line"><span style="color: #C9D1D9">                        }</span></span>
+<span class="line"><span style="color: #C9D1D9">                    }</span></span>
+<span class="line"><span style="color: #C9D1D9">                }</span></span>
+<span class="line"><span style="color: #C9D1D9">                stage(</span><span style="color: #A5D6FF">'BBB'</span><span style="color: #C9D1D9">) {</span></span>
+<span class="line"><span style="color: #C9D1D9">                    steps {</span></span>
+<span class="line"><span style="color: #C9D1D9">                        </span><span style="color: #8B949E">// ...    </span></span>
+<span class="line"><span style="color: #C9D1D9">                    }</span></span>
+<span class="line"><span style="color: #C9D1D9">                }</span></span>
+<span class="line"><span style="color: #C9D1D9">            }</span></span>
+<span class="line"><span style="color: #C9D1D9">        }</span></span>
+<span class="line"><span style="color: #C9D1D9">    }</span></span>
+<span class="line"><span style="color: #C9D1D9">    post {</span></span>
+<span class="line"><span style="color: #C9D1D9">        always {</span></span>
+<span class="line"><span style="color: #C9D1D9">            echo </span><span style="color: #A5D6FF">'One way or another, I have finished'</span></span>
+<span class="line"><span style="color: #C9D1D9">            deleteDir() </span><span style="color: #8B949E">/* clean up our workspace */</span></span>
+<span class="line"><span style="color: #C9D1D9">        }</span></span>
+<span class="line"><span style="color: #C9D1D9">        success {</span></span>
+<span class="line"><span style="color: #C9D1D9">            echo </span><span style="color: #A5D6FF">'I succeeeded!'</span></span>
+<span class="line"><span style="color: #C9D1D9">        }</span></span>
+<span class="line"><span style="color: #C9D1D9">        unstable {</span></span>
+<span class="line"><span style="color: #C9D1D9">            echo </span><span style="color: #A5D6FF">'I am unstable :/'</span></span>
+<span class="line"><span style="color: #C9D1D9">        }</span></span>
+<span class="line"><span style="color: #C9D1D9">        failure {</span></span>
+<span class="line"><span style="color: #C9D1D9">            echo </span><span style="color: #A5D6FF">'I failed :('</span></span>
+<span class="line"><span style="color: #C9D1D9">        }</span></span>
+<span class="line"><span style="color: #C9D1D9">        changed {</span></span>
+<span class="line"><span style="color: #C9D1D9">            echo </span><span style="color: #A5D6FF">'Things were different before...'</span></span>
+<span class="line"><span style="color: #C9D1D9">        }</span></span>
+<span class="line"><span style="color: #C9D1D9">    }</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre><h1 id="checkout-from-git-with-credentials-not-needed-for-multi-branch-pipelines">Checkout from git with credentials (not needed for multi-branch pipelines)</h1><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">        stage('checkout') {</span></span>
+<span class="line"><span style="color: #c9d1d9">            steps {</span></span>
+<span class="line"><span style="color: #c9d1d9">                git url: '&#x3C;git url>', branch: '&#x3C;branch>', credentialsId: '&#x3C;jenkins credId>'</span></span>
+<span class="line"><span style="color: #c9d1d9">                // ...</span></span>
+<span class="line"><span style="color: #c9d1d9">            }</span></span>
+<span class="line"><span style="color: #c9d1d9">        }</span></span></code></pre><h1 id="poll-git-for-changes-regularly-not-needed-for-multi-branch-pipelines">Poll git for changes regularly (not needed for multi-branch pipelines)</h1><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">pipeline {</span></span>
+<span class="line"><span style="color: #c9d1d9">    agent any</span></span>
+<span class="line"><span style="color: #c9d1d9">    triggers { pollSCM('H 07 * * 1') }</span></span>
+<span class="line"><span style="color: #c9d1d9">    stages {</span></span>
+<span class="line"><span style="color: #c9d1d9">        stage('checkout') {</span></span>
+<span class="line"><span style="color: #c9d1d9">            steps {</span></span>
+<span class="line"><span style="color: #c9d1d9">                git url: '&#x3C;git url>', branch: '&#x3C;branch>', credentialsId: '&#x3C;jenkins credId>', poll: true</span></span>
+<span class="line"><span style="color: #c9d1d9">                // ...</span></span>
+<span class="line"><span style="color: #c9d1d9">            }</span></span>
+<span class="line"><span style="color: #c9d1d9">        }</span></span>
+<span class="line"><span style="color: #c9d1d9">    }</span></span></code></pre><h1 id="ansicolor-output">AnsiColor output</h1><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">        stage('AAA') {</span></span>
+<span class="line"><span style="color: #c9d1d9">            steps {</span></span>
+<span class="line"><span style="color: #c9d1d9">                ansiColor('xterm') {</span></span>
+<span class="line"><span style="color: #c9d1d9">                    // ...  </span></span>
+<span class="line"><span style="color: #c9d1d9">                }</span></span>
+<span class="line"><span style="color: #c9d1d9">            }</span></span>
+<span class="line"><span style="color: #c9d1d9">	}</span></span></code></pre><h1 id="set-environment-variables-various-ways">Set environment variables (various ways)</h1><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">    stages {</span></span>
+<span class="line"><span style="color: #c9d1d9">        environment {</span></span>
+<span class="line"><span style="color: #c9d1d9">            GLOBALVAR = 'this is a global variable'</span></span>
+<span class="line"><span style="color: #c9d1d9">        }</span></span>
+<span class="line"><span style="color: #c9d1d9">        stage('AAA') {</span></span>
+<span class="line"><span style="color: #c9d1d9">            environment {</span></span>
+<span class="line"><span style="color: #c9d1d9">                 STAGEVAR = 'this is a stage variable'</span></span>
+<span class="line"><span style="color: #c9d1d9">            }</span></span>
+<span class="line"><span style="color: #c9d1d9">            steps {</span></span>
+<span class="line"><span style="color: #c9d1d9">	        script {</span></span>
+<span class="line"><span style="color: #c9d1d9">                    env.MYVAR = "my variable"</span></span>
+<span class="line"><span style="color: #c9d1d9">                    env.VAR = "the value of MYVAR is ${env.MYVAR}"</span></span>
+<span class="line"><span style="color: #c9d1d9">                    env.VARFROMPROGRAM = sh(returnStdout:true, script: "&#x3C;run a program and even use ${env.VAR} here>").trim()</span></span>
+<span class="line"><span style="color: #c9d1d9">                }</span></span>
+<span class="line"><span style="color: #c9d1d9">            }</span></span>
+<span class="line"><span style="color: #c9d1d9">        }</span></span>
+<span class="line"><span style="color: #c9d1d9">    }</span></span></code></pre><h1 id="inject-jenkins-credentials-into-environment-variable">Inject Jenkins credentials into environment variable</h1><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">        stage('AAA') {</span></span>
+<span class="line"><span style="color: #c9d1d9">            steps {</span></span>
+<span class="line"><span style="color: #c9d1d9">                withCredentials([usernameColonPassword(credentialsId: '&#x3C;jenkins credId', variable: 'USERPASS')]) {</span></span>
+<span class="line"><span style="color: #c9d1d9">                    sh "echo $USERPASS"</span></span>
+<span class="line"><span style="color: #c9d1d9">                }</span></span>
+<span class="line"><span style="color: #c9d1d9">            }</span></span>
+<span class="line"><span style="color: #c9d1d9">        }</span></span></code></pre><h1 id="select-jdk-and-maven-version-defined-in-jenkins">Select JDK and Maven version (defined in Jenkins)</h1><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">        stage('AAA') {</span></span>
+<span class="line"><span style="color: #c9d1d9">            steps {</span></span>
+<span class="line"><span style="color: #c9d1d9">                withEnv(["JAVA_HOME=${tool 'JDK 8'}","PATH+MAVEN=${tool 'Maven 3'}/bin:${env.JAVA_HOME}/bin"]) {</span></span>
+<span class="line"><span style="color: #c9d1d9">                    sh "mvn -Dmaven.test.skip=true clean package"</span></span>
+<span class="line"><span style="color: #c9d1d9">                    // ...</span></span>
+<span class="line"><span style="color: #c9d1d9">                }</span></span>
+<span class="line"><span style="color: #c9d1d9">            }</span></span>
+<span class="line"><span style="color: #c9d1d9">        }</span></span></code></pre><h1 id="ignore-exit-code-while-inside-a-shell-step">Ignore exit code while inside a shell step</h1><p>A shell step invokes bash with -xe options. Setting +e will disable immediate exit from an earlier failed step. Note that the earlier exit code will always be 0. If your intent is to capture the exit code but not fail the step, then see the next section.</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">                stage('AAA') {</span></span>
+<span class="line"><span style="color: #c9d1d9">                    steps {</span></span>
+<span class="line"><span style="color: #c9d1d9">                        sh """</span></span>
+<span class="line"><span style="color: #c9d1d9">                            set +e</span></span>
+<span class="line"><span style="color: #c9d1d9">                            // do something...</span></span>
+<span class="line"><span style="color: #c9d1d9">                            set -e</span></span>
+<span class="line"><span style="color: #c9d1d9">			    // this line will run regardless of previous exit code</span></span>
+<span class="line"><span style="color: #c9d1d9">                        """</span></span>
+<span class="line"><span style="color: #c9d1d9">                    }</span></span>
+<span class="line"><span style="color: #c9d1d9">                }</span></span></code></pre><h1 id="ignore-exit-code-from-a-shell-step-and-capture-it">Ignore exit code from a shell step (and capture it)</h1><p>The shell step comes with a returnStatus option that will return the exit code and won’t fail the step. This means you can capture the exit code and then defer the decision to fail the pipeline toward the end of the pipeline.</p><p>Note: for some reason, using environment variables will not work</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">def pipeline_should_fail = false</span></span>
+<span class="line"><span style="color: #c9d1d9">pipeline {</span></span>
+<span class="line"><span style="color: #c9d1d9">    ....</span></span>
+<span class="line"><span style="color: #c9d1d9">        stage('AAA') {</span></span>
+<span class="line"><span style="color: #c9d1d9">            steps {</span></span>
+<span class="line"><span style="color: #c9d1d9">                script {</span></span>
+<span class="line"><span style="color: #c9d1d9">                    def step_result = sh (returnStatus: true, script: """</span></span>
+<span class="line"><span style="color: #c9d1d9">                        // do something</span></span>
+<span class="line"><span style="color: #c9d1d9">                    """)</span></span>
+<span class="line"><span style="color: #c9d1d9">		    if (step_result != 0) { pipeline_should_fail = true }</span></span>
+<span class="line"><span style="color: #c9d1d9">                    sh """</span></span>
+<span class="line"><span style="color: #c9d1d9">                        echo 'this line will run'</span></span>
+<span class="line"><span style="color: #c9d1d9">                    """</span></span>
+<span class="line"><span style="color: #c9d1d9">                }</span></span>
+<span class="line"><span style="color: #c9d1d9">            }</span></span>
+<span class="line"><span style="color: #c9d1d9">	}</span></span>
+<span class="line"><span style="color: #c9d1d9">	// other stages</span></span>
+<span class="line"><span style="color: #c9d1d9">	</span></span>
+<span class="line"><span style="color: #c9d1d9">        post {</span></span>
+<span class="line"><span style="color: #c9d1d9">            always {</span></span>
+<span class="line"><span style="color: #c9d1d9">	        // fail the pipeline if the earlier stage failed</span></span>
+<span class="line"><span style="color: #c9d1d9">                script {</span></span>
+<span class="line"><span style="color: #c9d1d9">                    if (pipeline_should_fail) {</span></span>
+<span class="line"><span style="color: #c9d1d9">                        currentBuild.result = "FAILURE"</span></span>
+<span class="line"><span style="color: #c9d1d9">                    }</span></span>
+<span class="line"><span style="color: #c9d1d9">                }</span></span>
+<span class="line"><span style="color: #c9d1d9">            }</span></span>
+<span class="line"><span style="color: #c9d1d9">        }</span></span></code></pre><h1 id="mark-pipeline-as-failed-when-a-stage-is-unstable">Mark pipeline as failed when a stage is unstable</h1><p>The post block is placed as the last step in a stage.</p><p>A stage is usually unstable when a Jenkins publisher determine so e.g. JUnit test has failures</p><p>You cannot mark a build as successful from unstable status.</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">            post {</span></span>
+<span class="line"><span style="color: #c9d1d9">                unstable {</span></span>
+<span class="line"><span style="color: #c9d1d9">                    script {</span></span>
+<span class="line"><span style="color: #c9d1d9">                        echo "Problems encountered, marking build as FAILED"</span></span>
+<span class="line"><span style="color: #c9d1d9">                        currentBuild.result = 'FAILURE'</span></span>
+<span class="line"><span style="color: #c9d1d9">                    }</span></span>
+<span class="line"><span style="color: #c9d1d9">                }</span></span>
+<span class="line"><span style="color: #c9d1d9">            }</span></span></code></pre><h1 id="run-sonarqube-analysis">Run SonarQube analysis</h1><p>Requires SonarQube plugin</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">               stage('sonar') {</span></span>
+<span class="line"><span style="color: #c9d1d9">                    steps {</span></span>
+<span class="line"><span style="color: #c9d1d9">                        withSonarQubeEnv('Sonar') {</span></span>
+<span class="line"><span style="color: #c9d1d9">                            script {</span></span>
+<span class="line"><span style="color: #c9d1d9">                                def sonar = tool name: 'Sonar Runner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'</span></span>
+<span class="line"><span style="color: #c9d1d9">                                sh """</span></span>
+<span class="line"><span style="color: #c9d1d9">                                $sonar/bin/sonar-scanner -e -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONAR_AUTH_TOKEN} \</span></span>
+<span class="line"><span style="color: #c9d1d9">                                    -Dsonar.projectName='&#x3C;project name>' \</span></span>
+<span class="line"><span style="color: #c9d1d9">                                    -Dsonar.projectVersion=&#x3C;version> \</span></span>
+<span class="line"><span style="color: #c9d1d9">                                    -Dsonar.projectKey=&#x3C;project key> \</span></span>
+<span class="line"><span style="color: #c9d1d9">                                    -Dsonar.sources=&#x3C;sources paths, no wildcards> \</span></span>
+<span class="line"><span style="color: #c9d1d9">				    -Dsonar.inclusions=&#x3C;inclusions paths, wildcards ok> \</span></span>
+<span class="line"><span style="color: #c9d1d9">                                    -Dsonar.exclusions=&#x3C;exclusions paths, wildcards ok> \</span></span>
+<span class="line"><span style="color: #c9d1d9">                                    -Dsonar.java.binaries=&#x3C;java binaries paths, no wildcards> \</span></span>
+<span class="line"><span style="color: #c9d1d9">				    -Dsonar.java.libraries=&#x3C;java libraries paths, wildcards ok> \</span></span>
+<span class="line"><span style="color: #c9d1d9">				    -Dsonar.junit.reportPaths=&#x3C;surefire report paths, wildcards ok></span></span>
+<span class="line"><span style="color: #c9d1d9">                                """</span></span>
+<span class="line"><span style="color: #c9d1d9">                            }</span></span>
+<span class="line"><span style="color: #c9d1d9">                        }</span></span>
+<span class="line"><span style="color: #c9d1d9">                   }</span></span>
+<span class="line"><span style="color: #c9d1d9">                }</span></span></code></pre><h1 id="archive-buildtest-artifacts">Archive build/test artifacts</h1><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">    post {</span></span>
+<span class="line"><span style="color: #c9d1d9">        always {</span></span>
+<span class="line"><span style="color: #c9d1d9">            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true</span></span>
+<span class="line"><span style="color: #c9d1d9">            junit 'build/reports/**/*.xml'</span></span>
+<span class="line"><span style="color: #c9d1d9">        }</span></span>
+<span class="line"><span style="color: #c9d1d9">    }</span></span></code></pre><h1 id="sending-notification-to-email--slack">Sending notification to Email / Slack</h1><p>Requires Email-ext and Slack plugins</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">    post {</span></span>
+<span class="line"><span style="color: #c9d1d9">        always {</span></span>
+<span class="line"><span style="color: #c9d1d9">	    script {</span></span>
+<span class="line"><span style="color: #c9d1d9">                if (currentBuild.currentResult == 'SUCCESS') {</span></span>
+<span class="line"><span style="color: #c9d1d9">                    env.SLACKCOLOR = "good"</span></span>
+<span class="line"><span style="color: #c9d1d9">                } else {</span></span>
+<span class="line"><span style="color: #c9d1d9">                    env.SLACKCOLOR = "danger"</span></span>
+<span class="line"><span style="color: #c9d1d9">                }</span></span>
+<span class="line"><span style="color: #c9d1d9">                env.GITCOMMIT = sh(returnStdout:true, script: 'git rev-parse HEAD | cut -c 1-6').trim()</span></span>
+<span class="line"><span style="color: #c9d1d9">                env.GITCOMMITUSER = sh(returnStdout:true, script: "git --no-pager show -s --format='%an' ${env.GITCOMMIT}").trim()</span></span>
+<span class="line"><span style="color: #c9d1d9">                env.GITCOMMITMSG = sh(returnStdout: true, script: 'git log -1 --pretty=%B').trim()</span></span>
+<span class="line"><span style="color: #c9d1d9"></span></span>
+<span class="line"><span style="color: #c9d1d9">                env.SLACKMSG = """</span></span>
+<span class="line"><span style="color: #c9d1d9">                    *${currentBuild.currentResult}: &#x3C;${env.BUILD_URL}|${env.JOB_NAME} #${env.BUILD_NUMBER}>*</span></span>
+<span class="line"><span style="color: #c9d1d9">                    commit ${env.GITCOMMIT} ${env.GITCOMMITMSG}</span></span>
+<span class="line"><span style="color: #c9d1d9">                    by ${env.GITCOMMITUSER} on branch ${env.BRANCH_NAME}</span></span>
+<span class="line"><span style="color: #c9d1d9">                    """</span></span>
+<span class="line"><span style="color: #c9d1d9"></span></span>
+<span class="line"><span style="color: #c9d1d9">                env.EMAILMSG = """</span></span>
+<span class="line"><span style="color: #c9d1d9">                    ${currentBuild.currentResult}: ${env.JOB_NAME} #${env.BUILD_NUMBER}:</span></span>
+<span class="line"><span style="color: #c9d1d9">                    Commit ${env.GITCOMMIT} ${env.GITCOMMITMSG}</span></span>
+<span class="line"><span style="color: #c9d1d9">                            by ${env.GITCOMMITUSER} on branch ${env.BRANCH_NAME}</span></span>
+<span class="line"><span style="color: #c9d1d9"></span></span>
+<span class="line"><span style="color: #c9d1d9">                            Check console output at ${env.BUILD_URL} to view the results</span></span>
+<span class="line"><span style="color: #c9d1d9">                    """</span></span>
+<span class="line"><span style="color: #c9d1d9">            }</span></span>
+<span class="line"><span style="color: #c9d1d9"></span></span>
+<span class="line"><span style="color: #c9d1d9">            slackSend (</span></span>
+<span class="line"><span style="color: #c9d1d9">                message: "${env.SLACKMSG}",</span></span>
+<span class="line"><span style="color: #c9d1d9">                color: "${env.SLACKCOLOR}",</span></span>
+<span class="line"><span style="color: #c9d1d9">                baseUrl: "&#x3C;jenkins integration url from slack>",</span></span>
+<span class="line"><span style="color: #c9d1d9">                channel: "#&#x3C;channel>",</span></span>
+<span class="line"><span style="color: #c9d1d9">                tokenCredentialId: "&#x3C;jenkins credId>"</span></span>
+<span class="line"><span style="color: #c9d1d9">                )</span></span>
+<span class="line"><span style="color: #c9d1d9">    	}</span></span>
+<span class="line"><span style="color: #c9d1d9">        failure {</span></span>
+<span class="line"><span style="color: #c9d1d9">            emailext (</span></span>
+<span class="line"><span style="color: #c9d1d9">                to: "&#x3C;email addresses>",</span></span>
+<span class="line"><span style="color: #c9d1d9">                subject: "FAIL: ${env.JOB_NAME} #${env.BUILD_NUMBER}",</span></span>
+<span class="line"><span style="color: #c9d1d9">                body: "${env.EMAILMSG}"</span></span>
+<span class="line"><span style="color: #c9d1d9">                )</span></span>
+<span class="line"><span style="color: #c9d1d9">        }</span></span>
+<span class="line"><span style="color: #c9d1d9">    }</span></span></code></pre><h1 id="invoke-owasp-dependency-check-scan">Invoke OWASP Dependency Check scan</h1><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">        stage('dependency-check') {</span></span>
+<span class="line"><span style="color: #c9d1d9">            steps {</span></span>
+<span class="line"><span style="color: #c9d1d9">                dependencyCheckAnalyzer scanpath: '',</span></span>
+<span class="line"><span style="color: #c9d1d9">                    outdir: '.',</span></span>
+<span class="line"><span style="color: #c9d1d9">                    datadir: '',</span></span>
+<span class="line"><span style="color: #c9d1d9">                    suppressionFile: '',</span></span>
+<span class="line"><span style="color: #c9d1d9">                    hintsFile: '',</span></span>
+<span class="line"><span style="color: #c9d1d9">                    zipExtensions: '',</span></span>
+<span class="line"><span style="color: #c9d1d9">                    isAutoupdateDisabled: false,</span></span>
+<span class="line"><span style="color: #c9d1d9">                    includeHtmlReports: true,</span></span>
+<span class="line"><span style="color: #c9d1d9">                    includeVulnReports: false,</span></span>
+<span class="line"><span style="color: #c9d1d9">                    includeJsonReports: false,</span></span>
+<span class="line"><span style="color: #c9d1d9">                    includeCsvReports: false,</span></span>
+<span class="line"><span style="color: #c9d1d9">                    skipOnScmChange: false,</span></span>
+<span class="line"><span style="color: #c9d1d9">                    skipOnUpstreamChange: false</span></span>
+<span class="line"><span style="color: #c9d1d9"></span></span>
+<span class="line"><span style="color: #c9d1d9">                dependencyCheckPublisher canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''</span></span>
+<span class="line"><span style="color: #c9d1d9">            }</span></span>
+<span class="line"><span style="color: #c9d1d9">        }</span></span></code></pre>
 			</div>
 		</div>
 	</article>

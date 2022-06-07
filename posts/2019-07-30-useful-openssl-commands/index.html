@@ -7,9 +7,7 @@
 
   <!-- KaTeX stylesheet -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
-<link rel="stylesheet" href="/assets/BaseLayout.319ff24b.css"></link>
-<link rel="stylesheet" href="/assets/PostLayout.17bd0ff9.css"></link>
-<link rel="stylesheet" href="/assets/global.554b62af.css"></link>
+<link rel="stylesheet" href="/assets/asset.454ae0fa.css"></link><script type="module" src="/entry.fe8c21137.js" astro-script="/posts/2019-07-30-useful-openssl-commands/script-0"></script>
 </head>
 
 	<body class="theme-default typography-default font-body bg-background">
@@ -61,23 +59,7 @@
 
 </header>
 
-<script>
-function toggleMobileMenu() {
-	var menu = document.getElementById("mobile_menu");
-	var openBtn = document.getElementById("menuOpenBtn");
-	var closeBtn = document.getElementById("menuCloseBtn");
-	if (menu.classList.contains("hideMenu")) {
-		// show menu and change the icon
-		menu.classList.remove("hideMenu");
-		openBtn.style.display = "none";
-		closeBtn.style.display = "block";
-	} else {
-		menu.classList.add("hideMenu");
-		openBtn.style.display = "block";
-		closeBtn.style.display = "none";
-	}
-}
-</script>
+
 
 				<main class="container flex-1 max-w-3xl px-6 mx-auto xl:max-w-5xl">
 					<article class="pb-8 space-y-6 md:space-y-8">
@@ -114,17 +96,17 @@ function toggleMobileMenu() {
 
 			<div class="w-full prose sm:w-3/4 max-w-none">
 				<blockquote>
-<p>A lot of online tutorials don't really mention one fact, and many people are confused about it - the "private" key file actually contains BOTH the private key and public key. This is necessary for PKI to work in the first place. You cannot derive a public key from a private key alone, and vice-versa.</p>
-</blockquote><h1 id="generate-a-new-private-key-and-certificate-signing-request">Generate a new private key and Certificate Signing Request</h1><p><code>openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key</code></p><h1 id="generate-a-self-signed-certificate">Generate a self-signed certificate</h1><p><code>openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt</code></p><h1 id="generate-a-certificate-signing-request-csr-for-an-existing-private-key">Generate a certificate signing request (CSR) for an existing private key</h1><p><code>openssl req -out CSR.csr -key privateKey.key -new -config myconfig.cnf</code></p><h1 id="generate-a-certificate-signing-request-based-on-an-existing-certificate">Generate a certificate signing request based on an existing certificate</h1><p><code>openssl x509 -x509toreq -in certificate.crt -out CSR.csr -signkey privateKey.key</code></p><h1 id="remove-a-passphrase-from-a-private-key">Remove a passphrase from a private key</h1><p><code>openssl rsa -in privateKey.pem -out newPrivateKey.pem</code></p><h1 id="check-a-certificate-signing-request-csr">Check a Certificate Signing Request (CSR)</h1><p><code>openssl req -text -noout -verify -in CSR.csr</code></p><h1 id="check-a-private-key">Check a private key</h1><p><code>openssl rsa -in privateKey.key -check</code></p><h1 id="display-the-public-key-in-the-private-key-pair">Display the public key in the private key(-pair)</h1><p><code>openssl rsa -in privateKey.key -pubout</code></p><h1 id="check-a-certificate">Check a certificate</h1><p><code>openssl x509 -in certificate.crt -text -noout</code></p><h1 id="check-a-pkcs12-file-pfx-or-p12">Check a PKCS#12 file (.pfx or .p12)</h1><p><code>openssl pkcs12 -info -in keyStore.p12</code></p><h1 id="get-various-info-on-a-cert">Get various info on a cert</h1><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.crt -noout -issuer</span></span>
-<span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.crt -noout -subject</span></span>
-<span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.crt -noout -dates</span></span>
-<span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.crt -noout -startdate</span></span>
-<span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.crt -noout -enddate</span></span>
-<span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.crt -noout -hash</span></span>
-<span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.crt -noout -fingerprint</span></span></code></pre><h1 id="check-if-cert-will-expire-within-1-day">Check if cert will expire within 1 day</h1><p><code>openssl x509 -in certificate.crt -noout -checkend 86400</code></p><p>(Exit code 0 if success, 1 if fail)</p><h1 id="check-whether-a-cert-matches-a-keycsr">Check whether a cert matches a key/csr</h1><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.crt -noout -modulus | openssl md5</span></span>
-<span class="line"><span style="color: #f6f6f4">openssl rsa -in certificate.key -noout -modulus | openssl md5</span></span>
-<span class="line"><span style="color: #f6f6f4">openssl req -in certificate.csr -noout -modulus | openssl md5</span></span></code></pre><p>(you can use <code>openssl sha1</code> too)</p><h1 id="check-contents-of-cert-from-website">Check contents of cert from website</h1><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">curl --insecure -v https://www.google.com 2&gt;&amp;1 | awk &#39;BEGIN { cert=0 } /^\* Server certificate:/ { cert=1 } /^\*/ { if (cert) print }&#39;</span></span></code></pre><h1 id="get-rsa-key-digest-of-cert-for-cert-pinning">Get rsa key digest of cert (for cert pinning)</h1><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.cer -pubkey -noout | openssl rsa -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64</span></span></code></pre><h1 id="further-reading">Further Reading</h1><ul>
-<li>https://evermeet.cx/wiki/Reference_Of_Most_Commonly_Used_OpenSSL_Commands#Encrypting_.26_Decrypting</li>
+<p>A lot of online tutorials don’t really mention one fact, and many people are confused about it - the “private” key file actually contains BOTH the private key and public key. This is necessary for PKI to work in the first place. You cannot derive a public key from a private key alone, and vice-versa.</p>
+</blockquote><h1 id="generate-a-new-private-key-and-certificate-signing-request">Generate a new private key and Certificate Signing Request</h1><p><code>openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key</code></p><h1 id="generate-a-self-signed-certificate">Generate a self-signed certificate</h1><p><code>openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt</code></p><h1 id="generate-a-certificate-signing-request-csr-for-an-existing-private-key">Generate a certificate signing request (CSR) for an existing private key</h1><p><code>openssl req -out CSR.csr -key privateKey.key -new -config myconfig.cnf</code></p><h1 id="generate-a-certificate-signing-request-based-on-an-existing-certificate">Generate a certificate signing request based on an existing certificate</h1><p><code>openssl x509 -x509toreq -in certificate.crt -out CSR.csr -signkey privateKey.key</code></p><h1 id="remove-a-passphrase-from-a-private-key">Remove a passphrase from a private key</h1><p><code>openssl rsa -in privateKey.pem -out newPrivateKey.pem</code></p><h1 id="check-a-certificate-signing-request-csr">Check a Certificate Signing Request (CSR)</h1><p><code>openssl req -text -noout -verify -in CSR.csr</code></p><h1 id="check-a-private-key">Check a private key</h1><p><code>openssl rsa -in privateKey.key -check</code></p><h1 id="display-the-public-key-in-the-private-key-pair">Display the public key in the private key(-pair)</h1><p><code>openssl rsa -in privateKey.key -pubout</code></p><h1 id="check-a-certificate">Check a certificate</h1><p><code>openssl x509 -in certificate.crt -text -noout</code></p><h1 id="check-a-pkcs12-file-pfx-or-p12">Check a PKCS#12 file (.pfx or .p12)</h1><p><code>openssl pkcs12 -info -in keyStore.p12</code></p><h1 id="get-various-info-on-a-cert">Get various info on a cert</h1><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.crt -noout -issuer</span></span>
+<span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.crt -noout -subject</span></span>
+<span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.crt -noout -dates</span></span>
+<span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.crt -noout -startdate</span></span>
+<span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.crt -noout -enddate</span></span>
+<span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.crt -noout -hash</span></span>
+<span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.crt -noout -fingerprint</span></span></code></pre><h1 id="check-if-cert-will-expire-within-1-day">Check if cert will expire within 1 day</h1><p><code>openssl x509 -in certificate.crt -noout -checkend 86400</code></p><p>(Exit code 0 if success, 1 if fail)</p><h1 id="check-whether-a-cert-matches-a-keycsr">Check whether a cert matches a key/csr</h1><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.crt -noout -modulus | openssl md5</span></span>
+<span class="line"><span style="color: #c9d1d9">openssl rsa -in certificate.key -noout -modulus | openssl md5</span></span>
+<span class="line"><span style="color: #c9d1d9">openssl req -in certificate.csr -noout -modulus | openssl md5</span></span></code></pre><p>(you can use <code>openssl sha1</code> too)</p><h1 id="check-contents-of-cert-from-website">Check contents of cert from website</h1><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">curl --insecure -v https://www.google.com 2>&#x26;1 | awk 'BEGIN { cert=0 } /^\* Server certificate:/ { cert=1 } /^\*/ { if (cert) print }'</span></span></code></pre><h1 id="get-rsa-key-digest-of-cert-for-cert-pinning">Get rsa key digest of cert (for cert pinning)</h1><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.cer -pubkey -noout | openssl rsa -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64</span></span></code></pre><h1 id="further-reading">Further Reading</h1><ul>
+<li><a href="https://evermeet.cx/wiki/Reference_Of_Most_Commonly_Used_OpenSSL_Commands#Encrypting_.26_Decrypting">https://evermeet.cx/wiki/Reference_Of_Most_Commonly_Used_OpenSSL_Commands#Encrypting_.26_Decrypting</a></li>
 </ul>
 			</div>
 		</div>

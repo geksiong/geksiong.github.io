@@ -7,9 +7,7 @@
 
   <!-- KaTeX stylesheet -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
-<link rel="stylesheet" href="/assets/BaseLayout.319ff24b.css"></link>
-<link rel="stylesheet" href="/assets/PostLayout.17bd0ff9.css"></link>
-<link rel="stylesheet" href="/assets/global.554b62af.css"></link>
+<link rel="stylesheet" href="/assets/asset.454ae0fa.css"></link><script type="module" src="/entry.fe8c211310.js" astro-script="/posts/2022-03-26-switching-to-astro/script-0"></script>
 </head>
 
 	<body class="theme-default typography-default font-body bg-background">
@@ -61,23 +59,7 @@
 
 </header>
 
-<script>
-function toggleMobileMenu() {
-	var menu = document.getElementById("mobile_menu");
-	var openBtn = document.getElementById("menuOpenBtn");
-	var closeBtn = document.getElementById("menuCloseBtn");
-	if (menu.classList.contains("hideMenu")) {
-		// show menu and change the icon
-		menu.classList.remove("hideMenu");
-		openBtn.style.display = "none";
-		closeBtn.style.display = "block";
-	} else {
-		menu.classList.add("hideMenu");
-		openBtn.style.display = "block";
-		closeBtn.style.display = "none";
-	}
-}
-</script>
+
 
 				<main class="container flex-1 max-w-3xl px-6 mx-auto xl:max-w-5xl">
 					<article class="pb-8 space-y-6 md:space-y-8">
@@ -113,11 +95,11 @@ function toggleMobileMenu() {
 			</aside>
 
 			<div class="w-full prose sm:w-3/4 max-w-none">
-				<p>Decided to make the switch to Astro (currently at 0.24.3). Unlike VuePress, Astro doesn't come with batteries so I'm basically starting from scratch. I think I've reached a point where I think I can replace the current website.</p><h2 id="differences">Differences</h2><p>Just to highlight some of the main differences:</p><ul>
-<li>Astro uses "remark" for the markdown engine, while VuePress is based on "markdown-it".</li>
+				<p>Decided to make the switch to Astro (currently at 0.24.3). Unlike VuePress, Astro doesn’t come with batteries so I’m basically starting from scratch. I think I’ve reached a point where I think I can replace the current website.</p><h2 id="differences">Differences</h2><p>Just to highlight some of the main differences:</p><ul>
+<li>Astro uses “remark” for the markdown engine, while VuePress is based on “markdown-it”.</li>
 <li>Astro is a static site generator generating multiple standalone pages, while VuePress builds a Single Page App.</li>
-<li>You must add the "layout" field to the markdown frontmatter. There had been some discussions over at Astro's Github repo about creating a way to avoid doing this (since people want to convert their existing sites and this is quite a bit of hassle). I hope they agree on a solution soon. For now, <a href="https://docs.astro.build/en/guides/aliases/">aliases</a> help to alleviate this pain a bit.</li>
-<li>Astro doesn't come with any search feature.</li>
+<li>You must add the “layout” field to the markdown frontmatter. There had been some discussions over at Astro’s Github repo about creating a way to avoid doing this (since people want to convert their existing sites and this is quite a bit of hassle). I hope they agree on a solution soon. For now, <a href="https://docs.astro.build/en/guides/aliases/">aliases</a> help to alleviate this pain a bit.</li>
+<li>Astro doesn’t come with any search feature.</li>
 <li>Still no Prettier for .astro files.</li>
 </ul>
 			</div>

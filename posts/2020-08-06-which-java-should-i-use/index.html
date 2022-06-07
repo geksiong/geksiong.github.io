@@ -7,9 +7,7 @@
 
   <!-- KaTeX stylesheet -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
-<link rel="stylesheet" href="/assets/BaseLayout.319ff24b.css"></link>
-<link rel="stylesheet" href="/assets/PostLayout.17bd0ff9.css"></link>
-<link rel="stylesheet" href="/assets/global.554b62af.css"></link>
+<link rel="stylesheet" href="/assets/asset.454ae0fa.css"></link><script type="module" src="/entry.fe8c21138.js" astro-script="/posts/2020-08-06-which-java-should-i-use/script-0"></script>
 </head>
 
 	<body class="theme-default typography-default font-body bg-background">
@@ -61,23 +59,7 @@
 
 </header>
 
-<script>
-function toggleMobileMenu() {
-	var menu = document.getElementById("mobile_menu");
-	var openBtn = document.getElementById("menuOpenBtn");
-	var closeBtn = document.getElementById("menuCloseBtn");
-	if (menu.classList.contains("hideMenu")) {
-		// show menu and change the icon
-		menu.classList.remove("hideMenu");
-		openBtn.style.display = "none";
-		closeBtn.style.display = "block";
-	} else {
-		menu.classList.add("hideMenu");
-		openBtn.style.display = "block";
-		closeBtn.style.display = "none";
-	}
-}
-</script>
+
 
 				<main class="container flex-1 max-w-3xl px-6 mx-auto xl:max-w-5xl">
 					<article class="pb-8 space-y-6 md:space-y-8">
@@ -106,7 +88,7 @@ function toggleMobileMenu() {
 					<div>
 						<h2 class="pb-4 text-sm font-semibold tracking-widest uppercase md:border-l-2 md:px-4 ">On This Page</h2>
 						<div class="flex flex-col">
-							<div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style="padding-left: 0.5rem;"><a href="#tldr" class="block w-full">TLDR;</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#the-many-flavours-of-java" class="block w-full">The Many Flavours of Java</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style="padding-left: 0.5rem;"><a href="#openjdk" class="block w-full">OpenJDK</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style="padding-left: 0.5rem;"><a href="#openjdk-builds-by-oracle" class="block w-full">OpenJDK builds by Oracle</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style="padding-left: 0.5rem;"><a href="#adoptopenjdk" class="block w-full">AdoptOpenJDK</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style="padding-left: 0.5rem;"><a href="#openjdk-builds-by-other-vendors" class="block w-full">OpenJDK builds by Other vendors</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style="padding-left: 0.5rem;"><a href="#oracle-jdk" class="block w-full">Oracle JDK</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#installing-adoptopenjdk" class="block w-full">Installing AdoptOpenJDK</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#app-server-support" class="block w-full">App Server Support</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#wheres-the-jre" class="block w-full">Where&#39;s the JRE?</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#java-in-containers" class="block w-full">Java in Containers</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#difference-between-java-versions" class="block w-full">Difference between Java versions</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#tooling-considerations" class="block w-full">Tooling Considerations</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#what-about-java-ee" class="block w-full">What about Java EE?</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#what-about-kotlin" class="block w-full">What about Kotlin?</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#conclusion" class="block w-full">Conclusion</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#references" class="block w-full">References</a></div></div>
+							<div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style="padding-left: 0.5rem;"><a href="#tldr" class="block w-full">TLDR;</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#the-many-flavours-of-java" class="block w-full">The Many Flavours of Java</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style="padding-left: 0.5rem;"><a href="#openjdk" class="block w-full">OpenJDK</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style="padding-left: 0.5rem;"><a href="#openjdk-builds-by-oracle" class="block w-full">OpenJDK builds by Oracle</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style="padding-left: 0.5rem;"><a href="#adoptopenjdk" class="block w-full">AdoptOpenJDK</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style="padding-left: 0.5rem;"><a href="#openjdk-builds-by-other-vendors" class="block w-full">OpenJDK builds by Other vendors</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style="padding-left: 0.5rem;"><a href="#oracle-jdk" class="block w-full">Oracle JDK</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#installing-adoptopenjdk" class="block w-full">Installing AdoptOpenJDK</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#app-server-support" class="block w-full">App Server Support</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#wheres-the-jre" class="block w-full">Where’s the JRE?</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#java-in-containers" class="block w-full">Java in Containers</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#difference-between-java-versions" class="block w-full">Difference between Java versions</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#tooling-considerations" class="block w-full">Tooling Considerations</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#what-about-java-ee" class="block w-full">What about Java EE?</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#what-about-kotlin" class="block w-full">What about Kotlin?</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#conclusion" class="block w-full">Conclusion</a></div></div><div class="md:border-l-2 md:px-4 md:py-1 hover:text-main hover:border-main hover:bg-main/20"><div style=""><a href="#references" class="block w-full">References</a></div></div>
 						</div>
 					</div>
 				</nav>
@@ -114,34 +96,34 @@ function toggleMobileMenu() {
 
 			<div class="w-full prose sm:w-3/4 max-w-none">
 				<h3 id="tldr">TLDR;</h3><blockquote>
-<p>I would say use AdoptOpenJDK's builds (https://adoptopenjdk.net), unless you are working for a client who can only use certified binaries, need commercial support, or has to use a legacy version of Java.
-But most of us probably have Oracle's OpenJDK builds installed on our machines.</p>
+<p>I would say use AdoptOpenJDK’s builds (<a href="https://adoptopenjdk.net">https://adoptopenjdk.net</a>), unless you are working for a client who can only use certified binaries, need commercial support, or has to use a legacy version of Java.
+But most of us probably have Oracle’s OpenJDK builds installed on our machines.</p>
 </blockquote><h2 id="the-many-flavours-of-java">The Many Flavours of Java</h2><blockquote>
 <p>Actually, <em>all</em> Java source codes start with <strong>OpenJDK</strong>. However, this does not mean that all the Javas out there are the same.</p>
 </blockquote><h3 id="openjdk">OpenJDK</h3><ul>
-<li>Not named "Java" because the name is owned by Oracle. To be named "Java" it needs to pass Oracle's TCK certification to qualify for the name. Hence this is just the "JDK".</li>
+<li>Not named “Java” because the name is owned by Oracle. To be named “Java” it needs to pass Oracle’s TCK certification to qualify for the name. Hence this is just the “JDK”.</li>
 <li>OpenJDK is licensed under GPLv2 with linking exception.</li>
-<li>Website: https://openjdk.java.net</li>
-<li>You will notice though that the website just points you towards Oracle's OpenJDK builds (see below). <em>There are no instructions for getting older OpenJDK on Windows &#x26; Macs</em></li>
+<li>Website: <a href="https://openjdk.java.net">https://openjdk.java.net</a></li>
+<li>You will notice though that the website just points you towards Oracle’s OpenJDK builds (see below). <em>There are no instructions for getting older OpenJDK on Windows &#x26; Macs</em></li>
 </ul><h3 id="openjdk-builds-by-oracle">OpenJDK builds by Oracle</h3><ul>
-<li>Website: https://jdk.java.net</li>
+<li>Website: <a href="https://jdk.java.net">https://jdk.java.net</a></li>
 <li>This is OpenJDK built by Oracle, but not branded Oracle. Oracle JDK is actually something else.
 <ul>
 <li>available for Windows/Linux/MacOS, and <em>sometimes</em> Alpine Linux</li>
 </ul>
 </li>
 <li>Only the current version is available on the website. <strong>No LTS</strong>.</li>
-<li>the Linux builds downloadable here are just <em>"Reference Implementations"</em>
+<li>the Linux builds downloadable here are just <em>“Reference Implementations”</em>
 <ul>
-<li>just get them from your distro's official package manager</li>
+<li>just get them from your distro’s official package manager</li>
 </ul>
 </li>
-<li>I believe the major distros are all bundling Oracle's OpenJDK builds (see below)</li>
+<li>I believe the major distros are all bundling Oracle’s OpenJDK builds (see below)</li>
 <li>As of Java 11, the code base is identical to Oracle JDK (not exactly true, read below)</li>
-<li>According to Wikipedia, these are supposedly TCK tested <em>(I'm not so sure about this though. If someone finds definitive proof of this please let me know)</em></li>
+<li>According to Wikipedia, these are supposedly TCK tested <em>(I’m not so sure about this though. If someone finds definitive proof of this please let me know)</em></li>
 <li>Free for personal use or training. <strong>No commercial support</strong></li>
 </ul><h3 id="adoptopenjdk">AdoptOpenJDK</h3><ul>
-<li>Website: https://adoptopenjdk.net/</li>
+<li>Website: <a href="https://adoptopenjdk.net/">https://adoptopenjdk.net/</a></li>
 <li>AdoptOpenJDK is founded by a group of Java User Group members, which includes IBM, Microsoft, Pivotal, Red Hat, etc</li>
 <li>Two engines: Hotspot vs OpenJ9
 <ul>
@@ -159,9 +141,9 @@ But most of us probably have Oracle's OpenJDK builds installed on our machines.<
 </ul><h3 id="oracle-jdk">Oracle JDK</h3><ul>
 <li>Oracle branded version, with commercial support</li>
 <li>You <em>cannot</em> use this in production without purchasing commercial support</li>
-<li>From Java 11 onwards, is <em>"essentially"</em> identical to OpenJDK
+<li>From Java 11 onwards, is <em>“essentially”</em> identical to OpenJDK
 <ul>
-<li>but <em>there are some differences</em>. Some are intentional (and cosmetic), while some are Oracle's own decision to implement first while still discussing with OpenJDK contributors
+<li>but <em>there are some differences</em>. Some are intentional (and cosmetic), while some are Oracle’s own decision to implement first while still discussing with OpenJDK contributors
 <ul>
 <li>details here: <a href="https://blogs.oracle.com/java-platform-group/oracle-jdk-releases-for-java-11-and-later">https://blogs.oracle.com/java-platform-group/oracle-jdk-releases-for-java-11-and-later</a></li>
 </ul>
@@ -169,38 +151,38 @@ But most of us probably have Oracle's OpenJDK builds installed on our machines.<
 </ul>
 </li>
 </ul><h2 id="installing-adoptopenjdk">Installing AdoptOpenJDK</h2><ul>
-<li>I believe the major Linux distros are actually distributing Oracle's OpenJDK builds in their package repositories. AdoptOpenJDK has its own rpm and deb repositories.</li>
-<li>On MacOS, "java" and "openjdk" on Homebrew also installs Oracle's OpenJDK builds. There is another adoptopenjdk cask on Homebrew. As with many homebrew packages, they are packaged by contributors, not official.</li>
-<li>Note that AdoptOpenJDK 's' Alpine Linux (and other OS) images are unofficial. The only official ones and based on Ubuntu and Windows.
+<li>I believe the major Linux distros are actually distributing Oracle’s OpenJDK builds in their package repositories. AdoptOpenJDK has its own rpm and deb repositories.</li>
+<li>On MacOS, “java” and “openjdk” on Homebrew also installs Oracle’s OpenJDK builds. There is another adoptopenjdk cask on Homebrew. As with many homebrew packages, they are packaged by contributors, not official.</li>
+<li>Note that AdoptOpenJDK ‘s’ Alpine Linux (and other OS) images are unofficial. The only official ones and based on Ubuntu and Windows.
 <ul>
 <li>This may be a potential issue for some customers?</li>
 </ul>
 </li>
 </ul><h2 id="app-server-support">App Server Support</h2><blockquote>
-<p>I'll just focus on Apache Tomcat here.</p>
+<p>I’ll just focus on Apache Tomcat here.</p>
 </blockquote><ul>
 <li>Tomcat 8.5 - Java 7 and later</li>
 <li>Tomcat 9 - Java 8 and later</li>
 <li>Tomcat 10 (currently still alpha) - Java 8 and later</li>
 <li>So the current generation of Tomcat still can run on Java 8</li>
-</ul><h2 id="wheres-the-jre">Where's the JRE?</h2><ul>
+</ul><h2 id="wheres-the-jre">Where’s the JRE?</h2><ul>
 <li>In the past, we develop using JDK and deploy using only the JRE</li>
 <li>However now the trend (since Java 9 and above) is to distribute only the JDK
 <ul>
 <li>the JRE might still be available from some distros, you will need to check</li>
-<li>you can't get the JRE from the JDK easily anymore, as the directory structure has changed</li>
+<li>you can’t get the JRE from the JDK easily anymore, as the directory structure has changed</li>
 </ul>
 </li>
 </ul><h2 id="java-in-containers">Java in Containers</h2><ul>
 <li>Java 8 originally is not Container aware
 <ul>
-<li>It sees all of the host's CPU cores and memory. This can make apps make wrong decisions when in containers. In particular, reported memory affect GC.</li>
+<li>It sees all of the host’s CPU cores and memory. This can make apps make wrong decisions when in containers. In particular, reported memory affect GC.</li>
 <li><em>Docker support was backported into Java 8 (OpenJDK 8u192 onwards)</em>_</li>
 </ul>
 </li>
 <li>Java 9 supports the same Docker CPU and memory limits directives
 <ul>
-<li><em>need to set them yourself</em>, otherwise you'll get the Java 8 behaviour</li>
+<li><em>need to set them yourself</em>, otherwise you’ll get the Java 8 behaviour</li>
 </ul>
 </li>
 <li>Java 10 made some further changes</li>
@@ -214,7 +196,7 @@ But most of us probably have Oracle's OpenJDK builds installed on our machines.<
 </ul>
 </li>
 </ul><h2 id="difference-between-java-versions">Difference between Java versions</h2><blockquote>
-<p>Below are some notable differences between the JDK versions. I'm not listing everything here. Just some info I gathered from various articles.</p>
+<p>Below are some notable differences between the JDK versions. I’m not listing everything here. Just some info I gathered from various articles.</p>
 </blockquote><ul>
 <li>Java is backwards compatible, what you know now can definitely still be used in future versions</li>
 <li>Below are some notable new features brought by each version of Java. Note that there are also removed features, which may affect your decision if you depend on them.</li>
@@ -258,7 +240,7 @@ But most of us probably have Oracle's OpenJDK builds installed on our machines.<
 <li>New methods for Strings &#x26; Files</li>
 <li>Ability to run Java source files without compile step (moving towards scripting?)</li>
 <li><code>var</code> can now be used in lambda parameters</li>
-<li>Java 9's HttpClient is final</li>
+<li>Java 9’s HttpClient is final</li>
 <li>Flight Recorder, No-op GC, Nashorn JS engine deprecated</li>
 </ul>
 </li>
@@ -266,7 +248,7 @@ But most of us probably have Oracle's OpenJDK builds installed on our machines.<
 <ul>
 <li>Unicode 11 support</li>
 <li>New switch expressions</li>
-<li>...and others</li>
+<li>…and others</li>
 </ul>
 </li>
 <li><strong>Java 13</strong>
@@ -282,7 +264,7 @@ But most of us probably have Oracle's OpenJDK builds installed on our machines.<
 </li>
 </ul><h2 id="tooling-considerations">Tooling Considerations</h2><ul>
 <li>Some build tools initially had bugs with Java 9 and above, make sure you update your tooling</li>
-<li>Hopefully your client doesn't limit your choice of tools.</li>
+<li>Hopefully your client doesn’t limit your choice of tools.</li>
 </ul><h2 id="what-about-java-ee">What about Java EE?</h2><ul>
 <li>Open source version has since moved to <strong>Jakarta EE</strong> (not to be confused with Jakarta Project which includes Apache Tomcat )</li>
 <li>To develop for Java EE (or Jakarta EE) you need an application server like JBoss or Glassfish
@@ -294,10 +276,10 @@ But most of us probably have Oracle's OpenJDK builds installed on our machines.<
 <li>Not a Java transpiler! It compiles directly to the JVM</li>
 <li>Produces Java 6 bytecode by default</li>
 <li>Currently can target Java 8 to 13</li>
-<li>I'm not aware of any Kotlin-to-Java transpiler at this moment.</li>
+<li>I’m not aware of any Kotlin-to-Java transpiler at this moment.</li>
 </ul><h2 id="conclusion">Conclusion</h2><ul>
 <li>Since AdoptOpenJDK offers LTS versions of the JDK, it makes sense to go with them.</li>
-<li>On Linux, using a particular (Oracle) OpenJDK version shouldn't be a problem since you can always get a particular version from the package repositories. On MacOS there's Homebrew.</li>
+<li>On Linux, using a particular (Oracle) OpenJDK version shouldn’t be a problem since you can always get a particular version from the package repositories. On MacOS there’s Homebrew.</li>
 <li>Windows users are in a bit of a quandary since Oracle only publishes the current version. Not saying there are no ways to get the version you want, but please know your sources.</li>
 </ul><h2 id="references">References</h2><ul>
 <li><a href="https://dzone.com/articles/a-guide-to-java-versions-and-features">https://dzone.com/articles/a-guide-to-java-versions-and-features</a></li>

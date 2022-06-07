@@ -7,9 +7,7 @@
 
   <!-- KaTeX stylesheet -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
-<link rel="stylesheet" href="/assets/BaseLayout.319ff24b.css"></link>
-<link rel="stylesheet" href="/assets/PostLayout.17bd0ff9.css"></link>
-<link rel="stylesheet" href="/assets/global.554b62af.css"></link>
+<link rel="stylesheet" href="/assets/asset.454ae0fa.css"></link><script type="module" src="/entry.fe8c21139.js" astro-script="/posts/2021-11-09-WSL-for-development/script-0"></script>
 </head>
 
 	<body class="theme-default typography-default font-body bg-background">
@@ -61,23 +59,7 @@
 
 </header>
 
-<script>
-function toggleMobileMenu() {
-	var menu = document.getElementById("mobile_menu");
-	var openBtn = document.getElementById("menuOpenBtn");
-	var closeBtn = document.getElementById("menuCloseBtn");
-	if (menu.classList.contains("hideMenu")) {
-		// show menu and change the icon
-		menu.classList.remove("hideMenu");
-		openBtn.style.display = "none";
-		closeBtn.style.display = "block";
-	} else {
-		menu.classList.add("hideMenu");
-		openBtn.style.display = "block";
-		closeBtn.style.display = "none";
-	}
-}
-</script>
+
 
 				<main class="container flex-1 max-w-3xl px-6 mx-auto xl:max-w-5xl">
 					<article class="pb-8 space-y-6 md:space-y-8">
@@ -113,33 +95,33 @@ function toggleMobileMenu() {
 			</aside>
 
 			<div class="w-full prose sm:w-3/4 max-w-none">
-				<h2 id="background">Background</h2><p>I've been using gitbash for the longest time. I'd briefly tried WSL2 some time back, but I felt more comfortable with gitbash because it is 'outside'. Lately, I've decided to make the move into WSL2 again, for the following reasons:</p><ul>
-<li>VS Code can work with WSL2 from the 'outside'</li>
+				<h2 id="background">Background</h2><p>I’ve been using gitbash for the longest time. I’d briefly tried WSL2 some time back, but I felt more comfortable with gitbash because it is ‘outside’. Lately, I’ve decided to make the move into WSL2 again, for the following reasons:</p><ul>
+<li>VS Code can work with WSL2 from the ‘outside’</li>
 <li>Docker Desktop decided to charge for business use. Might as well run docker inside WSL2</li>
 <li>I want to use zsh</li>
-</ul><h2 id="choose-your-linux">Choose Your Linux</h2><p>I chose Ubuntu, as most people use it, meaning it should be easier to troubleshoot and seach for solutions.</p><p>Debian is much smaller, but it's smaller because a lot of things hasn't been installed yet. Ubuntu comes out of the box with git, ssh, vim, tmux, python, etc, all my usual tools.</p><h2 id="setup">Setup</h2><h3 id="file-permissions">File Permissions</h3><p>This is a common gotcha that non-Linux users probably won't realise. Although WSL2 conveniently auto-mounts your Windows user directory, everything in there has <code>0777</code> file permissions, which is horrible for git. Also, I want to keep my ssh configurations outside in Windows, and using ssh is impossible if the keys in my .ssh folder are all <code>0777</code>.</p><p>Fortunately, WSL2 provides a way to provide proper file permissions for mounted Windows folders. The <code>.wslconfig</code> file in Window's <code>%UserProfile%</code> directory for some reason didn't work for me. Only <code>/etc/wsl.conf</code> inside Ubuntu works.</p><p>Create a new file <code>/etc/wsd.conf</code> with the following contents:</p><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #F6F6F4">[automount]</span></span>
-<span class="line"><span style="color: #F286C4">enabled</span><span style="color: #F6F6F4"> </span><span style="color: #F286C4">=</span><span style="color: #F6F6F4"> true</span></span>
-<span class="line"><span style="color: #F286C4">options</span><span style="color: #F6F6F4"> </span><span style="color: #F286C4">=</span><span style="color: #F6F6F4"> </span><span style="color: #DEE492">&quot;</span><span style="color: #E7EE98">metadata,umask=22,fmask=11</span><span style="color: #DEE492">&quot;</span></span></code></pre><p><strong>Important</strong>: You must wait 8 seconds before launching WSL2 again, before the settings will take effect. You can check whether any WSL2 distributions are running by executing <code>wsl --list --running</code> in Windows Command Prompt (or in gitbash)</p><p>Not sure why they don't make this the default setting.</p><p>I verified it works by changing my ssh key to <code>0600</code> and successfully logging into my server.</p><p><strong>References:</strong></p><ul>
-<li>https://www.turek.dev/posts/fix-wsl-file-permissions/</li>
-<li>https://devblogs.microsoft.com/commandline/chmod-chown-wsl-improvements/</li>
-</ul><h3 id="vs-code">VS Code</h3><p>VS Code (in Windows) can work with the development installed inside WSL2.</p><p>Just install Microsoft's "Remote - WSL" extension for VS Code. You can then use it to connect to your WSL2 Linux distribution. You can even simply run <code>code .</code> when inside your WSL2 distribution.</p><h3 id="switching-to-zsh">Switching to zsh</h3><pre class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #F6F6F4">sudo apt install zsh</span></span>
-<span class="line"><span style="color: #F6F6F4">chsh -s /usr/bin/zsh</span></span></code></pre><h2 id="issues">Issues</h2><h3 id="fonts">Fonts</h3><p>Fonts are lacking in the default command prompt app. Solution: Use Windows Terminal instead.</p><p>Tip: Install your favourite color scheme and enable transparency (need to edit settings.json). However, I found that Windows transparency doesn't work with tmux background colors...</p><h3 id="mounted-windows-directories-are-slow">Mounted Windows directories are slow</h3><p>I originally thought to simply soft-link to my current config files from gitbash, but I soon realise it slows things down quite a bit.</p><p>I tested with building the same project, one cloned inside WSL2, and the other cloned under Windows and mounted into WSL2. Building a project from a mounted Windows directory is indeed much slower.</p><p>Is this a problem? Let's see...</p><ul>
+</ul><h2 id="choose-your-linux">Choose Your Linux</h2><p>I chose Ubuntu, as most people use it, meaning it should be easier to troubleshoot and seach for solutions.</p><p>Debian is much smaller, but it’s smaller because a lot of things hasn’t been installed yet. Ubuntu comes out of the box with git, ssh, vim, tmux, python, etc, all my usual tools.</p><h2 id="setup">Setup</h2><h3 id="file-permissions">File Permissions</h3><p>This is a common gotcha that non-Linux users probably won’t realise. Although WSL2 conveniently auto-mounts your Windows user directory, everything in there has <code>0777</code> file permissions, which is horrible for git. Also, I want to keep my ssh configurations outside in Windows, and using ssh is impossible if the keys in my .ssh folder are all <code>0777</code>.</p><p>Fortunately, WSL2 provides a way to provide proper file permissions for mounted Windows folders. The <code>.wslconfig</code> file in Window’s <code>%UserProfile%</code> directory for some reason didn’t work for me. Only <code>/etc/wsl.conf</code> inside Ubuntu works.</p><p>Create a new file <code>/etc/wsd.conf</code> with the following contents:</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #FFA657">[automount]</span></span>
+<span class="line"><span style="color: #FF7B72">enabled</span><span style="color: #C9D1D9"> = true</span></span>
+<span class="line"><span style="color: #FF7B72">options</span><span style="color: #C9D1D9"> = </span><span style="color: #A5D6FF">"metadata,umask=22,fmask=11"</span></span></code></pre><p><strong>Important</strong>: You must wait 8 seconds before launching WSL2 again, before the settings will take effect. You can check whether any WSL2 distributions are running by executing <code>wsl --list --running</code> in Windows Command Prompt (or in gitbash)</p><p>Not sure why they don’t make this the default setting.</p><p>I verified it works by changing my ssh key to <code>0600</code> and successfully logging into my server.</p><p><strong>References:</strong></p><ul>
+<li><a href="https://www.turek.dev/posts/fix-wsl-file-permissions/">https://www.turek.dev/posts/fix-wsl-file-permissions/</a></li>
+<li><a href="https://devblogs.microsoft.com/commandline/chmod-chown-wsl-improvements/">https://devblogs.microsoft.com/commandline/chmod-chown-wsl-improvements/</a></li>
+</ul><h3 id="vs-code">VS Code</h3><p>VS Code (in Windows) can work with the development installed inside WSL2.</p><p>Just install Microsoft’s “Remote - WSL” extension for VS Code. You can then use it to connect to your WSL2 Linux distribution. You can even simply run <code>code .</code> when inside your WSL2 distribution.</p><h3 id="switching-to-zsh">Switching to zsh</h3><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #C9D1D9">sudo apt install zsh</span></span>
+<span class="line"><span style="color: #C9D1D9">chsh -s /usr/bin/zsh</span></span></code></pre><h2 id="issues">Issues</h2><h3 id="fonts">Fonts</h3><p>Fonts are lacking in the default command prompt app. Solution: Use Windows Terminal instead.</p><p>Tip: Install your favourite color scheme and enable transparency (need to edit settings.json). However, I found that Windows transparency doesn’t work with tmux background colors…</p><h3 id="mounted-windows-directories-are-slow">Mounted Windows directories are slow</h3><p>I originally thought to simply soft-link to my current config files from gitbash, but I soon realise it slows things down quite a bit.</p><p>I tested with building the same project, one cloned inside WSL2, and the other cloned under Windows and mounted into WSL2. Building a project from a mounted Windows directory is indeed much slower.</p><p>Is this a problem? Let’s see…</p><ul>
 <li>For most languages which you can use VS Code for development, keep the projects inside WSL2, since you will need all that tooling you installed in the first place</li>
 <li>Java projects can be developed using VS Code, but most will use IntelliJ or Eclipse. It appears that IntelliJ provides a way to work on your Java projects inside WSL2, and vice versa. Not sure about Eclipse.</li>
 <li>Android projects could be a problem, especially React Native or Ionic projects, where the tooling resides in WSL2, but you need Android Studio to be able to access files in WSL2. <strong>Pending research</strong></li>
-<li>Building of Docker images may have to compromise (assuming you are running Docker inside WSL2, see below), as they are usually located with the main project, be it outside or inside WSL2. This affects Java projects the most, since they are hosted outside WSL2 (as concluded above). Since this is usually a secondary activity, I think the tradeoff is probably justified. Or you can always run Docker Desktop...</li>
-</ul><h3 id="running-docker-inside-wsl2">Running Docker inside WSL2</h3><p>You can't run Docker out-of-the-box in Ubuntu for WSL2, as WSL2 <em>does not use systemd</em>. However, I did find that you can run dockerd and it seems to work.</p><p>Fortunately, there is a very detailed guide on how to setup Docker nicely under WSL2:</p><ul>
-<li>https://dev.to/bowmanjd/you-probably-don-t-need-systemd-on-wsl-windows-subsystem-for-linux-49gn</li>
-<li>https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9</li>
-<li>https://dev.to/bowmanjd/using-podman-on-windows-subsystem-for-linux-wsl-58ji</li>
-</ul><h3 id="snap-packages">Snap packages</h3><p>Ever since Ubuntu introduce Snaps, I find it irritating that some software chose to use snaps for distributions instead of good old apt repositories. Kotlin is one such software...</p><p>Ubuntu under WSL2 does not run snapd, because (you guessed it) systemd. Thanks Ubuntu!</p><h2 id="upgrade-to-ubuntu-2110">Upgrade to Ubuntu 21.10</h2><p>Because Ubuntu 20.04 LTS is missing some recent tooling.</p><ul>
+<li>Building of Docker images may have to compromise (assuming you are running Docker inside WSL2, see below), as they are usually located with the main project, be it outside or inside WSL2. This affects Java projects the most, since they are hosted outside WSL2 (as concluded above). Since this is usually a secondary activity, I think the tradeoff is probably justified. Or you can always run Docker Desktop…</li>
+</ul><h3 id="running-docker-inside-wsl2">Running Docker inside WSL2</h3><p>You can’t run Docker out-of-the-box in Ubuntu for WSL2, as WSL2 <em>does not use systemd</em>. However, I did find that you can run dockerd and it seems to work.</p><p>Fortunately, there is a very detailed guide on how to setup Docker nicely under WSL2:</p><ul>
+<li><a href="https://dev.to/bowmanjd/you-probably-don-t-need-systemd-on-wsl-windows-subsystem-for-linux-49gn">https://dev.to/bowmanjd/you-probably-don-t-need-systemd-on-wsl-windows-subsystem-for-linux-49gn</a></li>
+<li><a href="https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9">https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9</a></li>
+<li><a href="https://dev.to/bowmanjd/using-podman-on-windows-subsystem-for-linux-wsl-58ji">https://dev.to/bowmanjd/using-podman-on-windows-subsystem-for-linux-wsl-58ji</a></li>
+</ul><h3 id="snap-packages">Snap packages</h3><p>Ever since Ubuntu introduce Snaps, I find it irritating that some software chose to use snaps for distributions instead of good old apt repositories. Kotlin is one such software…</p><p>Ubuntu under WSL2 does not run snapd, because (you guessed it) systemd. Thanks Ubuntu!</p><h2 id="upgrade-to-ubuntu-2110">Upgrade to Ubuntu 21.10</h2><p>Because Ubuntu 20.04 LTS is missing some recent tooling.</p><ul>
 <li><code>sudo apt update &#x26;&#x26; sudo apt upgrade</code></li>
-<li><code>sudo apt remove snapd</code> -- Needed because WSL doesn't support Systemd directly</li>
+<li><code>sudo apt remove snapd</code> — Needed because WSL doesn’t support Systemd directly</li>
 <li>sudo edit <code>/etc/update-manager/release-upgrades</code> and change the last line to: <code>prompt=normal</code></li>
 <li><code>sudo do-release-upgrade</code> to upgrade to Hirsute/21.04</li>
 <li>Exit WSL, execute <code>wsl --terminate Ubuntu</code> from PowerShell or CMD, and restart WSL/Ubuntu.</li>
 <li>Repeat <code>sudo do-release upgrade</code> to upgrade to Impish/21.10</li>
-</ul><p><strong>Is this safe?</strong> So far so good. The current WSL2 kernel is based on 5.10, which is much higher than the 5.4 version released with Ubuntu 20.04, so even though Ubuntu 21.10 is based on 5.13, I don't think it really matters for most WSL2 use cases.</p><h2 id="software-to-install">Software to Install</h2><p>This is my personal list:</p><h3 id="development">Development</h3><ul>
+</ul><p><strong>Is this safe?</strong> So far so good. The current WSL2 kernel is based on 5.10, which is much higher than the 5.4 version released with Ubuntu 20.04, so even though Ubuntu 21.10 is based on 5.13, I don’t think it really matters for most WSL2 use cases.</p><h2 id="software-to-install">Software to Install</h2><p>This is my personal list:</p><h3 id="development">Development</h3><ul>
 <li>nodejs - Just add their apt repo</li>
 <li>java / kotlin - Install zip &#x26; unzip, then install sdkman. Note that you need to use sdkman to manage your installed java tooling.</li>
 <li>podman - requires Ubuntu >= 20.10</li>

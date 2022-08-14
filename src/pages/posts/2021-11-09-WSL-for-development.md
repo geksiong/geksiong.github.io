@@ -4,6 +4,7 @@ layout: '@layouts/PostLayout.astro'
 title: WSL2 for development
 description: Setting up WSL2 properly for development
 date: 2021-11-09
+updated: 2022-08-14
 
 tags:
   - wsl2
@@ -48,8 +49,8 @@ I verified it works by changing my ssh key to `0600` and successfully logging in
 
 **References:**
 
-- https://www.turek.dev/posts/fix-wsl-file-permissions/
-- https://devblogs.microsoft.com/commandline/chmod-chown-wsl-improvements/
+- <https://www.turek.dev/posts/fix-wsl-file-permissions/>
+- <https://devblogs.microsoft.com/commandline/chmod-chown-wsl-improvements/>
 
 ### VS Code
 
@@ -91,9 +92,9 @@ You can't run Docker out-of-the-box in Ubuntu for WSL2, as WSL2 _does not use sy
 
 Fortunately, there is a very detailed guide on how to setup Docker nicely under WSL2:
 
-- https://dev.to/bowmanjd/you-probably-don-t-need-systemd-on-wsl-windows-subsystem-for-linux-49gn
-- https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9
-- https://dev.to/bowmanjd/using-podman-on-windows-subsystem-for-linux-wsl-58ji
+- <https://dev.to/bowmanjd/you-probably-don-t-need-systemd-on-wsl-windows-subsystem-for-linux-49gn>
+- <https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9>
+- <https://dev.to/bowmanjd/using-podman-on-windows-subsystem-for-linux-wsl-58ji>
 
 ### Snap packages
 
@@ -101,7 +102,9 @@ Ever since Ubuntu introduce Snaps, I find it irritating that some software chose
 
 Ubuntu under WSL2 does not run snapd, because (you guessed it) systemd. Thanks Ubuntu!
 
-## Upgrade to Ubuntu 21.10
+## Upgrading Ubuntu
+
+### From Ubuntu 20.04 (Hirsute) to 21.10 (Impish)
 
 Because Ubuntu 20.04 LTS is missing some recent tooling.
 
@@ -112,7 +115,21 @@ Because Ubuntu 20.04 LTS is missing some recent tooling.
 - Exit WSL, execute `wsl --terminate Ubuntu` from PowerShell or CMD, and restart WSL/Ubuntu.
 - Repeat `sudo do-release upgrade` to upgrade to Impish/21.10
 
-**Is this safe?** So far so good. The current WSL2 kernel is based on 5.10, which is much higher than the 5.4 version released with Ubuntu 20.04, so even though Ubuntu 21.10 is based on 5.13, I don't think it really matters for most WSL2 use cases.
+_**Is this safe?**_ So far so good. The current WSL2 kernel is based on 5.10, which is much higher than the 5.4 version released with Ubuntu 20.04, so even though Ubuntu 21.10 is based on 5.13, I don't think it really matters for most WSL2 use cases.
+
+### (Update 2022-08-14) Upgrade to Ubuntu 22.04 (Jammy)
+
+I happened to attempt the upgrade after EOL in July, so I wasn't able to do the usual upgrade method as the Release file has been removed from the Impish repos. To get around this, do the following:
+
+- Reset `/etc/update-manager/release-upgrades` back to `prompt=lts`
+- Edit `etc/yum/sources.list` and replace all `xx.archive.ubuntu.com` with `old-releases.ubuntu.com` (official documentation at <https://help.ubuntu.com/community/EOLUpgrades>)
+- Then do the usual `sudo apt update` and `sudo do-release-upgrade`
+
+_Note that the WSL2 kernel is still on 5.10, while Jammy is on 5.15 already, but as mentioned it probably doesn't matter._
+
+### Updating WSL2 kernel
+
+Just run `wsl --update` inside a PowerShell terminal.
 
 ## Software to Install
 

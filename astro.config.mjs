@@ -2,6 +2,8 @@
 // https://docs.astro.build/reference/configuration-reference
 import { defineConfig } from 'astro/config';
 
+import remarkDirectiveVideo from './src/utils/remark/remarkDirectiveVideo.mjs';
+
 export default defineConfig ({
   site: 'https://geksiong.github.io',
 	integrations: [],
@@ -12,6 +14,8 @@ export default defineConfig ({
       // ['remark-autolink-headings', { behavior: 'prepend'}],
       'remark-math',
       '@akebifiky/remark-simple-plantuml',
+      'remark-directive',
+      remarkDirectiveVideo,
       'remark-gfm',
       'remark-smartypants',
     ],

@@ -114,9 +114,9 @@
 <p>This is a common gotcha that non-Linux users probably won’t realise. Although WSL2 conveniently auto-mounts your Windows user directory, everything in there has <code>0777</code> file permissions, which is horrible for git. Also, I want to keep my ssh configurations outside in Windows, and using ssh is impossible if the keys in my .ssh folder are all <code>0777</code>.</p>
 <p>Fortunately, WSL2 provides a way to provide proper file permissions for mounted Windows folders. The <code>.wslconfig</code> file in Window’s <code>%UserProfile%</code> directory for some reason didn’t work for me. Only <code>/etc/wsl.conf</code> inside Ubuntu works.</p>
 <p>Create a new file <code>/etc/wsd.conf</code> with the following contents:</p>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FFA657">[automount]</span></span>
-<span class="line"><span style="color: #FF7B72">enabled</span><span style="color: #C9D1D9"> = true</span></span>
-<span class="line"><span style="color: #FF7B72">options</span><span style="color: #C9D1D9"> = </span><span style="color: #A5D6FF">"metadata,umask=22,fmask=11"</span></span></code></pre>
+<pre is:raw="" class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #F6F6F4">[automount]</span></span>
+<span class="line"><span style="color: #F286C4">enabled</span><span style="color: #F6F6F4"> </span><span style="color: #F286C4">=</span><span style="color: #F6F6F4"> true</span></span>
+<span class="line"><span style="color: #F286C4">options</span><span style="color: #F6F6F4"> </span><span style="color: #F286C4">=</span><span style="color: #F6F6F4"> </span><span style="color: #DEE492">"</span><span style="color: #E7EE98">metadata,umask=22,fmask=11</span><span style="color: #DEE492">"</span></span></code></pre>
 <p><strong>Important</strong>: You must wait 8 seconds before launching WSL2 again, before the settings will take effect. You can check whether any WSL2 distributions are running by executing <code>wsl --list --running</code> in Windows Command Prompt (or in gitbash)</p>
 <p>Not sure why they don’t make this the default setting.</p>
 <p>I verified it works by changing my ssh key to <code>0600</code> and successfully logging into my server.</p>
@@ -129,8 +129,8 @@
 <p>VS Code (in Windows) can work with the development installed inside WSL2.</p>
 <p>Just install Microsoft’s “Remote - WSL” extension for VS Code. You can then use it to connect to your WSL2 Linux distribution. You can even simply run <code>code .</code> when inside your WSL2 distribution.</p>
 <h3 id="switching-to-zsh">Switching to zsh</h3>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">sudo apt install zsh</span></span>
-<span class="line"><span style="color: #C9D1D9">chsh -s /usr/bin/zsh</span></span></code></pre>
+<pre is:raw="" class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #F6F6F4">sudo apt install zsh</span></span>
+<span class="line"><span style="color: #F6F6F4">chsh -s /usr/bin/zsh</span></span></code></pre>
 <h2 id="issues">Issues</h2>
 <h3 id="fonts">Fonts</h3>
 <p>Fonts are lacking in the default command prompt app. Solution: Use Windows Terminal instead.</p>

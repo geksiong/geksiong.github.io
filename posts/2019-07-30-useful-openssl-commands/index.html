@@ -123,25 +123,25 @@
 <h1 id="check-a-pkcs12-file-pfx-or-p12">Check a PKCS#12 file (.pfx or .p12)</h1>
 <p><code>openssl pkcs12 -info -in keyStore.p12</code></p>
 <h1 id="get-various-info-on-a-cert">Get various info on a cert</h1>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.crt -noout -issuer</span></span>
-<span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.crt -noout -subject</span></span>
-<span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.crt -noout -dates</span></span>
-<span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.crt -noout -startdate</span></span>
-<span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.crt -noout -enddate</span></span>
-<span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.crt -noout -hash</span></span>
-<span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.crt -noout -fingerprint</span></span></code></pre>
+<pre is:raw="" class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.crt -noout -issuer</span></span>
+<span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.crt -noout -subject</span></span>
+<span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.crt -noout -dates</span></span>
+<span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.crt -noout -startdate</span></span>
+<span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.crt -noout -enddate</span></span>
+<span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.crt -noout -hash</span></span>
+<span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.crt -noout -fingerprint</span></span></code></pre>
 <h1 id="check-if-cert-will-expire-within-1-day">Check if cert will expire within 1 day</h1>
 <p><code>openssl x509 -in certificate.crt -noout -checkend 86400</code></p>
 <p>(Exit code 0 if success, 1 if fail)</p>
 <h1 id="check-whether-a-cert-matches-a-keycsr">Check whether a cert matches a key/csr</h1>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.crt -noout -modulus | openssl md5</span></span>
-<span class="line"><span style="color: #c9d1d9">openssl rsa -in certificate.key -noout -modulus | openssl md5</span></span>
-<span class="line"><span style="color: #c9d1d9">openssl req -in certificate.csr -noout -modulus | openssl md5</span></span></code></pre>
+<pre is:raw="" class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.crt -noout -modulus | openssl md5</span></span>
+<span class="line"><span style="color: #f6f6f4">openssl rsa -in certificate.key -noout -modulus | openssl md5</span></span>
+<span class="line"><span style="color: #f6f6f4">openssl req -in certificate.csr -noout -modulus | openssl md5</span></span></code></pre>
 <p>(you can use <code>openssl sha1</code> too)</p>
 <h1 id="check-contents-of-cert-from-website">Check contents of cert from website</h1>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #c9d1d9">curl --insecure -v https://www.google.com 2>&#x26;1 | awk 'BEGIN { cert=0 } /^\* Server certificate:/ { cert=1 } /^\*/ { if (cert) print }'</span></span></code></pre>
+<pre is:raw="" class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">curl --insecure -v https://www.google.com 2>&#x26;1 | awk 'BEGIN { cert=0 } /^\* Server certificate:/ { cert=1 } /^\*/ { if (cert) print }'</span></span></code></pre>
 <h1 id="get-rsa-key-digest-of-cert-for-cert-pinning">Get rsa key digest of cert (for cert pinning)</h1>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #c9d1d9">openssl x509 -in certificate.cer -pubkey -noout | openssl rsa -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64</span></span></code></pre>
+<pre is:raw="" class="astro-code" style="background-color: #282A36; overflow-x: auto;"><code><span class="line"><span style="color: #f6f6f4">openssl x509 -in certificate.cer -pubkey -noout | openssl rsa -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64</span></span></code></pre>
 <h1 id="further-reading">Further Reading</h1>
 <ul>
 <li><a href="https://evermeet.cx/wiki/Reference_Of_Most_Commonly_Used_OpenSSL_Commands#Encrypting_.26_Decrypting">https://evermeet.cx/wiki/Reference_Of_Most_Commonly_Used_OpenSSL_Commands#Encrypting_.26_Decrypting</a></li>

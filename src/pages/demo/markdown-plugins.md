@@ -27,3 +27,44 @@ function hello() {
   console.log("Hello World!");
 }
 ```
+
+## Simple PlantUML
+
+```plantuml Singleton
+@startuml
+title Singleton
+
+class Singleton
+
+Singleton : {static} uniqueInstance
+Singleton : // other useful Singleton data ‚Ä¶
+Singleton : {static} getInstance() : Singleton
+Singleton : // other useful Singleton methods()
+
+note right of Singleton
+The <i>uniqueInstance</i>
+class variable holds our
+one and only instance
+of Singleton
+end note
+
+note left of Singleton
+The <b>getInstance()</b> method is static,
+which means it‚Äôs a class method, so you
+can conveniently access this method
+from anywhere in your code using
+Singleton <b>getInstance()</b>. That‚Äôs just as
+easy as accessing a global variable, but
+we get benefit like lazy instantiation
+from the Singleton.
+end note
+
+note bottom of Singleton
+A class implementing the Singleton
+Pattern is more than a Singleton;
+it is a purpose class with its
+own set of data and methdods.
+end note
+@enduml
+```
+

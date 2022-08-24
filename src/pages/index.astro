@@ -8,7 +8,11 @@ import PostPreview from '@components/PostPreview.astro';
 import siteData from '@data/site.json';
 
 const allPosts = await Astro.glob('./posts/**/*.md');
-const sortedPosts = allPosts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+const sortedPosts = allPosts.sort((a, b) => {
+    let dateA = new Date(a.frontmatter.updated ? a.frontmatter.updated : a.frontmatter.date).valueOf();
+    let dateB = new Date(b.frontmatter.updated ? b.frontmatter.updated : b.frontmatter.date).valueOf();
+    return dateB - dateA;
+  });
 
 let content = {
 	title: siteData.title,

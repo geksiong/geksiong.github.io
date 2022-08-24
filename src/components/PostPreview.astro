@@ -7,6 +7,7 @@ import { generateSlug } from '@utils/helpers';
 
 let { post, tags } = Astro.props;
 
+let displayDate = ( post.frontmatter.updated ? post.frontmatter.updated : post.frontmatter.date )
 ---
 <article class="space-y-2">
 
@@ -24,7 +25,9 @@ let { post, tags } = Astro.props;
   <dl>
     <dt class="sr-only">Published on</dt>
     <dd class="text-sm">
-      <time datetime="2021-01-12" class="text-darkshade/50">{ new Date(post.frontmatter.date).toDateString()  }</time>
+      <time datetime="2021-01-12" class="text-darkshade/50">
+        { new Date(displayDate).toDateString()  }
+      </time>
     </dd>
   </dl>
 

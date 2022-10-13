@@ -3,6 +3,7 @@
 import { defineConfig } from 'astro/config';
 
 import remarkDirectiveVideo from './src/utils/remark/remarkDirectiveVideo.mjs';
+import defaultLayoutPlugin from './src/utils/remark/defaultLayoutPlugin.mjs';
 
 export default defineConfig ({
   site: 'https://geksiong.github.io',
@@ -12,6 +13,7 @@ export default defineConfig ({
       // Add a Remark plugin that you want to enable for your project.
       // If you need to provide options for the plugin, you can use an array and put the options as the second item.
       // ['remark-autolink-headings', { behavior: 'prepend'}],
+      defaultLayoutPlugin,
       'remark-math',
       '@akebifiky/remark-simple-plantuml',
       'remark-directive',

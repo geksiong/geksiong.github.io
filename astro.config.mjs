@@ -16,8 +16,6 @@ export default defineConfig ({
       '@akebifiky/remark-simple-plantuml',
       'remark-directive',
       remarkDirectiveVideo,
-      'remark-gfm',
-      'remark-smartypants',
     ],
     rehypePlugins: [
       // Add a Rehype plugin that you want to enable for your project.
@@ -25,6 +23,7 @@ export default defineConfig ({
       //['rehype-autolink-headings', { behavior: 'prepend'}],
       ['rehype-katex', {} ],
     ],
+    extendDefaultPlugins: true,
     syntaxHighlight: 'shiki',
     // If you are using shiki, here you can define a global theme and
     // add custom languages.

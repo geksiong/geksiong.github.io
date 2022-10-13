@@ -2,7 +2,7 @@ import {visit} from 'unist-util-visit'
 
 export default function remarkDirectiveVideo() {
   return (tree, file) => {
-    console.log('plugin invoked')
+    //console.log('plugin invoked')
     visit(tree, (node) => {
       if (
         node.type === 'textDirective' ||

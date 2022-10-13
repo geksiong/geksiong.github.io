@@ -1,6 +1,4 @@
 ---
-layout: '@layouts/PostLayout.astro'
-
 title: How to restore deleted records in MySQL
 date: 2021-08-12
 

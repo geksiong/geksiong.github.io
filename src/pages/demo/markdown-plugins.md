@@ -1,6 +1,4 @@
 ---
-layout: '@layouts/PostLayout.astro'
-
 title: Markdown Plugins Test Page
 summary: Test page for markdown plugins
 date: 2022-03-26

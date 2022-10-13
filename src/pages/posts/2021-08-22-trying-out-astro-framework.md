@@ -1,6 +1,4 @@
 ---
-layout: '@layouts/PostLayout.astro'
-
 title: Trying Out Astro Framework
 date: 2021-08-22
 tags:

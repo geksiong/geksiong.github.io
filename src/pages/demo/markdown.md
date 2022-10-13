@@ -1,6 +1,4 @@
 ---
-layout: '@layouts/PostLayout.astro'
-
 title: Markdown Test Page
 summary: Test page for markdown
 date: 2021-05-30

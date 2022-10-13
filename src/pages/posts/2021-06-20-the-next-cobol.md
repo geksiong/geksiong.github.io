@@ -1,6 +1,4 @@
 ---
-layout: '@layouts/PostLayout.astro'
-
 title: Kubernetes The Next COBOL?
 date: 2021-06-20
 tags:

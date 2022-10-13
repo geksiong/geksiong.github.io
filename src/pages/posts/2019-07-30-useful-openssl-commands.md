@@ -1,6 +1,4 @@
 ---
-layout: '@layouts/PostLayout.astro'
-
 title: Useful OpenSSL commands
 date: 2019-07-30
 tags:

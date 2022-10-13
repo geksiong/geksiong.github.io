@@ -1,6 +1,4 @@
 ---
-layout: '@layouts/PostLayout.astro'
-
 title: About This Website
 ---
 Hi I'm GS. This blog is where I keep my notes and write about mostly tech stuff.

@@ -1,6 +1,4 @@
 ---
-layout: '@layouts/PostLayout.astro'
-
 title: On Unit Testing
 description: Some thoughts & notes on the topic of Unit Testing
 date: 2022-04-10

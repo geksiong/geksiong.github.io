@@ -1,6 +1,4 @@
 ---
-layout: '@layouts/PostLayout.astro'
-
 title: Switching to Astro
 date: 2022-03-26
 tags:

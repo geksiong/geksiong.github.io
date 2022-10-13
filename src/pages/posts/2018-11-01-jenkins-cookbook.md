@@ -1,6 +1,4 @@
 ---
-layout: '@layouts/PostLayout.astro'
-
 title: Jenkins Cookbook
 description: Some declarative pipelines I've used for Jenkins
 date: 2018-11-01

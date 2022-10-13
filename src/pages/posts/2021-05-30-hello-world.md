@@ -1,6 +1,4 @@
 ---
-layout: '@layouts/PostLayout.astro'
-
 title: Re-starting a Blog
 date: 2021-05-30
 ---

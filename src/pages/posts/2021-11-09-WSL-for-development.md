@@ -1,6 +1,4 @@
 ---
-layout: '@layouts/PostLayout.astro'
-
 title: WSL2 for development
 description: Setting up WSL2 properly for development
 date: 2021-11-09

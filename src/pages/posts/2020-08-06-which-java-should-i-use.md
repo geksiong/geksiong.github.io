@@ -1,6 +1,4 @@
 ---
-layout: '@layouts/PostLayout.astro'
-
 title: Which Java Version Should I Use?
 date: 2020-08-06
 description: The Java landscape nowadays is more complicated than in the good old days. These are my notes to make sense of the confusing choices out there.

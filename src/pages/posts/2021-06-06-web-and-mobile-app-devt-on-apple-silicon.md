@@ -1,6 +1,4 @@
 ---
-layout: '@layouts/PostLayout.astro'
-
 title: Web & Mobile Application Development on Apple Silicon
 date: 2021-06-06
 tags:

@@ -31,8 +31,8 @@ const knownNotLayouts = new Set;
 
 export default function defaultLayoutPlugin() {
   return function (tree, file) {
-    // Somewhat hacky fix. Remark doesn't seem to like one of my markdown files with lots of frontmatter.
-    if (typeof file.history[0] == 'undefined') return;
+    // Do not process if the markdown does not come from a file
+    if (typeof file.path == 'undefined') return;
 
     const filePathFull = file.history[0].replace(/\/[^\/]+$/, '');
     const pagesPathFull = join(file.cwd, pagesPath);
